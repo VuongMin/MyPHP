@@ -1,0 +1,56 @@
+//VALIABLE
+Dùng var_dump(<tên biến>) : xác định kiểu gì
+iset(var) :kiểm tra tồn tại.
+Ép kiểu như bình thường với các ngôn ngữ khác.
+có hỗ trợ các hàm kiểm tra biến đó có phải là kiểu số,....
+Constand : define(Name, value);
+//Form Working 
+$_POST[''] || $_GET[''] -- Sài $_Request['' ] lấy auto method 
+
+Dấu nháy đôi thì nó sẽ tìm xem trong string có var nào không còn nháy đơn thì mặc định nó là một chuỗi dù có var.
+//Function
+Function thì giống function ajax.
+Truy cập biến toàn cục thì  : global <var> || GLOBALS['var']
+Tham chiếu thêm &  và tham trị bình thường.
+//partial view  PHP
+ Keys: include" "|| require ""
+ //Arrat
+ Kiểm tra mảng :emty()
+ unset(): xóa phần tử mảng bất kì 
+ //Read File txt
+ file('Name.txt') trả về 1 data
+ //Form submit gồm value của các item trong form đó.
+
+//String
+
+dùng md_strleng() để đếm kí tự utf-8.
+
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">:Dùng hàm này để muốn self lại chính trang của mình.
+ $ _SERVER ["REQUEST_METHOD"] =="POST" : xem dc gửi chưa.
+ //valition
+ Hàm preg_match () tìm kiếm một chuỗi cho mẫu, trả về true nếu mẫu tồn tại và sai khác: Biểu thức chính quy.
+ 
+ Email: $email = test_input($_POST["email"]);
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+  $emailErr = "Invalid email format"; 
+}
+//Files
+trong form phải có thuộc tính enctype="mutil/from-data"
+//sesion save in server .COOKIE Save in client 
+LƯU Hàm thì phải có eval();
+//xml
+chuyen string qua doi tuong : simple_load_string($xml)
+chuyen doi tuong xml qua string :$sml->asxml()
+//oject
+khi truy xuất đến attribiuse thì dùng -> . mảng thì dùng []
+//OOP
+Dùng desconstructor để hủy hay làm gì với sesion . Dùng seliazilible để chuyển đối tượng thành tring đặc biết để đưa vào database[sesion].
+ Final : với class thì class child không thể kết thừa của cha || final trong method thì khong thể  override method đó.
+ Static : <name class>::<$Name static || method static>  || ngay trong phuog thuc cua chinh no thi dung SEFT::<$VAR>.
+ //clone :contructor copy
+ //Astract -Interface
+  class Astract: không new ra được phải được kế thừa.
+   method atract trong hàm thì trong hàm cha chỉ khai báo và các lớp con kết thừa phải override lại hàm atract đó.
+   càm thuộc tính và các method atract nên là public.
+  Interface thì chỉ khai báo ...không có nội dụng ai muốn sài thì tự override các method đó
+  
