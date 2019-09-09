@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type="text/xsl" href="XSL/xpath.xsl"?>
+<shop>
+    <book id="11">
+        <author>Lender Toma</author>
+        <name>Victim in my house</name>
+        <page units="gram">400</page>
+        <price>
+            <real>35.0</real>
+            <saleoff>30.0</saleoff>
+        </price>
+        <shiping>
+            <US>1.2</US>
+            <EU>2.0</EU>
+            <VN>1.0</VN>
+        </shiping>
+    </book>
+    <book id="22">
+        <author>Kara tun</author>
+        <name>house</name>
+        <page units="gram">200</page>
+        <price>
+            <real>25.0</real>
+            <saleoff>25.0</saleoff>
+        </price>
+        <shiping>
+            <US>1.6</US>
+            <EU>2.2</EU>
+            <VN>08.0</VN>
+        </shiping>
+    </book>
+    <book>
+        <author>Marry Han</author>
+        <name>Party in my house</name>
+        <page units="gram">800</page>
+        <price>
+            <real>32.0</real>
+            <saleoff>32.0</saleoff>
+        </price>
+        <shiping>
+            <US>1.0</US>
+            <EU>1.0</EU>
+            <VN>1.2</VN>
+        </shiping>
+    </book>
+</shop>

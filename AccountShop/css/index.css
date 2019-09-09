@@ -1,0 +1,363 @@
+*
+{
+  margin:0;
+  padding:0;
+}
+#container
+{
+  width:1000px;
+  background: url(../video-image/hinhnen.jpg) center center / cover no-repeat fixed;
+  margin:0 auto;
+  
+}
+/* day la menu*/
+
+ #menungang
+{
+   box-sizing:border-box;
+  width:auto;
+  background:#2d2929;
+  text-align:center;
+  position:relative;
+}
+i
+{
+  color:yellow;
+}
+img#logo
+{
+  position:absolute;
+  top:-5px;
+  left:1px;
+  
+  
+}
+   #boxmenu li
+{
+  display:inline-table;
+  width:100px;
+    height:50px;
+  line-height:50px;
+  list-style-type:none;
+ 
+ 
+}
+ #boxmenu li a
+{
+  color:white;
+  text-decoration:none;
+  display:block;
+     text-transform:capitalize;
+   border-radius:6px ; 
+   margin-left:10px;
+   
+}
+  #boxmenu  li a:hover
+{
+  color:black;
+  font-style:italic;
+  font-weight:900;
+   
+  background:#ff5656;
+   
+}
+/* day la baner*/
+#banner
+{
+  width:750px;
+  box-sizing:border-box;
+  margin-top:10px;
+  position:relative;
+  float:right;
+  
+}
+
+#imbox
+
+{
+  width:auto;
+  position:absolute;
+
+}
+#chu
+{
+  position:absolute;
+  width:300px;
+  top:150px;
+  
+}
+#zed
+{
+  width:285px;
+  position:absolute;
+ 
+  left:63%;
+ 
+}
+
+#textbaner
+
+{
+color:green;
+font-size:30px;
+text-shadow:5px 3px 3px red;
+  position:absolute;
+  font-style:italic;
+
+top:270px;
+left:10px;
+transition:margin-left 1s 0.2s;
+}
+#textbaner:hover
+{
+margin-left:150px;
+}
+#logo
+{
+  width:200px;
+  
+  position:absolute;
+ 
+  
+}
+#mid
+{
+  width:300px;
+  height:200px;
+  position:absolute;
+  left:200px;
+  top:-20px;
+
+}
+/*giao dich*/
+#giaodich
+{
+  width:250px;
+  height:311px;
+  margin-top:10px;
+  background:#333;
+  box-sizing:border-box;
+  
+}
+#text
+{
+  color:yellow;
+   font-weight:900;
+  text-align:center;
+  text-shadow:5px 3px 5px red;
+  text-transform:uppercase;
+  background:#444444;
+    padding:10px;
+  
+}
+ol
+{
+  
+  list-style-type:none;
+  color:white;
+    
+    height: 273px;
+    overflow: scroll;
+  
+  
+}
+ol li
+{
+  margin-left:10px;
+  padding:5px;
+  text-transform:capitalize;
+  
+  
+ 
+}
+ol li i
+{
+ margin-right:10px;
+  color:black;
+  border:1px solid;
+  background:#0CE3AC;
+  border-radius:100px;
+
+  
+  
+  
+}
+ol li label
+{
+  background:#d6d626;
+  color:#874405;
+  float:right;
+  border-radius:5px;
+  font-weight:900;
+  padding:2px;
+   
+  
+}
+/*menu ngang part 2*/
+#menu
+{
+  margin-top:20px;
+  width:1000px;
+  box-sizing:border-box;
+
+}
+#menu ul
+{
+  
+    background:#666666;
+  list-style-type:none;
+
+  text-align:center;
+}
+#menu ul li
+{
+  display:inline-table;
+  width:150px;
+  height:55px;
+  line-height:55px;
+    position:relative;
+    background:#2d2929;
+  margin:5px;
+  border-radius:20px;
+
+}
+#menu ul li a
+{
+      text-transform:capitalize;
+  text-decoration:none;
+  color:white;
+  display:block;
+}
+#menu ul li a:hover
+{
+ color:yellow;
+ text-shadow:5px 5px 5px red;
+  border-radius:20px ;
+  border-bottom:2px solid #a59247;
+ 
+  
+  
+  
+}
+#menu ul li>.sub
+{
+  display:none;
+  position:absolute;
+}
+#menu ul li:hover>.sub
+{
+  display:block;
+  
+  
+  
+ 
+}
+#menu ul ul li  a:hover
+{
+
+  color:blue;
+  
+  border:3px solid #969615;
+  border-top:0;
+  border-bottom:0;
+  
+  
+  
+}
+
+
+
+
+
+/*footer*/
+h4
+{
+  border-top:4px solid yellow;
+  color:red;
+  font-style:italic;
+  
+  
+  padding:10px;
+  
+}
+
+
+
+
+#boxshow
+{
+  width:1000px; 
+
+  box-sizing:border-box;
+  overflow:auto;
+}
+#boxkhung
+{
+
+  width:300px;
+  height:320px;
+  border:6px solid #666666;
+  box-shadow:5px 5px 10px 10px inset;
+  padding:20px;
+  margin:10px 15px;
+  float:left;
+  box-sizing:border-box;
+}
+.sa-lpcode
+{
+
+  border:1px solid white;
+  text-align:center;
+  padding:5px;
+  color:green;
+  background:#222222;
+  margin-bottom:10px;
+}
+
+.boxtext
+{
+  color:white;
+  text-transform:capitalize;
+  width:150px;
+  
+  margin-top:10px;
+  float:left;
+  
+}
+.boxnode 
+{
+  
+  padding:5px;
+  width:75px; 
+  text-align:center;
+  float:left;
+}
+.buy
+{
+  color:yellow;
+  background:#bf5f00;
+  border-radius:5px ;
+  text-transform:capitalize;
+  height:30px;
+  line-height:30px;
+  
+  
+}
+.boxnode .buy:hover
+{
+  color:#333;
+  background:#F3F781;
+}
+.gia
+{
+  color:yellow;
+  font-weight:900;
+}
+#clear
+{
+  clear:both;
+}
+ #boxkhung img
+{
+   margin-left:10px;
+}

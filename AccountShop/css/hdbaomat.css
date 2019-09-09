@@ -1,0 +1,54 @@
+*
+{
+  margin:0;
+  padding:0;
+}
+#hdbaomat
+{
+  width:900px;
+  margin:0 auto;
+  background:#333;
+ 
+  box-sizing:border-box;
+ 
+}
+.hinh
+{
+  width:900px;
+}
+h1
+
+{
+  color:red;
+  text-align:center;
+}
+b
+{
+  color:#FFCC33;
+  font-size:20px;
+  text-transform:capitalize;
+  padding:10px;
+  
+}
+#text
+{
+  color:blue;
+  font-size:20px;
+  margin:10px;
+}
+p
+{
+  color:white;
+  margin:10px;
+  
+}
+#note
+{
+  color:red;
+}
+h3
+{
+  color:#3399FF;
+  margin:20px;
+  text-transform:uppercase;
+}

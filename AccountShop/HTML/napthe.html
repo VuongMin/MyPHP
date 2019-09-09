@@ -1,0 +1,114 @@
+<html>
+<meta charset="utf-8">
+<head>
+<link rel="stylesheet" type="text/css" href="./css/napthe.css">
+</head>
+<body>
+<div id="napthe">
+  <h1>nạp thẻ cào</h1>
+  <h3>tỉ lệ quy đổi :10.000 thẻ =10.000 vnđ trên wed </h3>
+  <p> <b>lưu ý:</b> do thẻ mobi và vina đang bảo trì nên quý khách vui lòng  nạp thẻ  viettel !</p>
+  <form class="card" method="post" action="#" onsubmit="return napthe()">
+    <ul>
+       <li>
+              <select id="type" >
+          <option  >chọn loại thẻ</option>
+          <option>viettel</option>                
+          
+        </select>
+  </li>
+      <li>
+        <select id="select">
+          <option>chọn mệnh giá thẻ</option>
+          <option>10.000</option>      
+          <option>20.000</option>    
+          <option>50.000</option>    
+          <option>100.000</option>    
+          <option>200.000</option>    
+          <option>500.000</option>    
+          
+        </select>
+      </li>
+      
+       <li>
+         <input type="text" name="seri" id="sr" onkeypress="kiemtra(event)" placeholder="Nhập Seri"  maxlength="12" onkeydown="chu(event)">
+      </li>
+       <li>
+         <input type="text" name="pin" id="mt" onkeypress="kiemtra(event)" placeholder="Nhập mã thẻ" maxlength="12"onkeydown="chu(event)">
+      </li>
+       <li>
+         <span>
+           <button type="submit" class="sa-lib-dk btn btn-danger">NẠP THẺ</button>
+         </span>
+         <span>
+           <button type="reset" >NHẬP LẠI</button>
+         </span>
+      </li>
+    </ul>
+  </form>
+
+</div>
+<script language="JavaScript">
+function napthe()
+{
+    var seri = document.getElementById("sr").value;
+    var mathe = document.getElementById("mt").value;
+	
+	var frm = document.forms[0];
+	
+	
+	
+	
+	obj = frm.elements["type"];
+	var cStudy = obj.selectedIndex;
+	if (cStudy <= 0)
+	{
+		alert("chưa chọn thẻ nạp!");
+	    return false;
+    }	
+	obz = frm.elements["select"];
+	var bStudy = obz.selectedIndex;
+	if (bStudy <= 0)
+	{
+		alert("chưa chọn mện giá!");
+	    return false;
+    }	
+	
+	
+	
+	 if (seri == ""){
+        alert("Bạn chưa nhập seri!");
+        document.getElementById("sr").style.backgroundColor="#333333";
+		return false;     
+	}
+	
+	 if (mathe == ""){
+        alert("Bạn chưa nhập mã thẻ");
+        document.getElementById("mt").style.backgroundColor="#333333";
+		return false;     
+	}
+	
+	
+	
+	}
+	function kiemtra(e){ 
+     var a =(e.which);
+if (a>=1 && a<=47)
+{
+    e.preventDefault();
+    alert("Không nhập chữ và kí tự");
+}
+	}
+function chu(e){
+var x =(e.which);
+if (x>=58 && x<=231)
+{
+e.preventDefault();
+alert("Không nhập chữ và kí tự");
+}
+}
+
+</script>
+
+</body>
+</html>

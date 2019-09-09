@@ -1,0 +1,40 @@
+#boxtable
+{
+  width:1000px;
+  box-sizing:border-box;
+
+}
+#boxtable p
+{
+  padding:10px;
+  font-weight:900;
+  font-size:20px;
+  font-style:italic;
+  color:yellow;
+  text-shadow:5px 5px 3px red;
+ text-transform: uppercase;
+}
+table
+{
+ width:1000px;
+  color:red;
+  text-transform: capitalize;
+  
+  
+ 
+  
+  border:1px solid  black;
+  
+
+  
+  
+}
+.tb1
+{
+   background:#333;
+ 
+  text-align:center;
+  color:white;
+}
+
+
