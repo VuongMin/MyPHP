@@ -53,4 +53,11 @@ Dùng desconstructor để hủy hay làm gì với sesion . Dùng seliazilible 
    method atract trong hàm thì trong hàm cha chỉ khai báo và các lớp con kết thừa phải override lại hàm atract đó.
    càm thuộc tính và các method atract nên là public.
   Interface thì chỉ khai báo ...không có nội dụng ai muốn sài thì tự override các method đó
-  
+  // Json -ajax
+  $('#Formmaid [name="email"]').val() // get 'name' in data:{}
+  $.ajax({ timeout:int ,cache: bool})
+  beforeSend:
+  dataFillter:
+  sussecc:
+  complete:
+
