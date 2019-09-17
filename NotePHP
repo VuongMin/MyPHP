@@ -61,3 +61,16 @@ Dùng desconstructor để hủy hay làm gì với sesion . Dùng seliazilible 
   sussecc:
   complete:
 
+  //Jquery
+  1 event co the cho nhieu the giong nhau ...
+  ''<tag> *' tat ca ca the con
+  windown.location.hash ///get sau #
+
+
+    <SELECT class="city" onchange="javascript:Excute(this.value)">
+          <option value="0"> -- choice my city -- </option>
+          <option value="1">Cần thơ</option>
+          <option value="2">Hồ chí Minh</option>
+          <option value="3"> Hà Nội</option>
+      </SELECT>
+

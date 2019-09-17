@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select BOX</title>
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+</head>
+<body>
+<div id="selectbox" style="margin: 0 auto;border: 1px solid ; width: 800px;text-align: center">
+   <h3 >CIty</h3>
+    <SELECT class="city" onchange="javascript:Excute(this.value)">
+        <option value="0"> -- choice my city -- </option>
+        <option value="1">Cần thơ</option>
+        <option value="2">Hồ chí Minh</option>
+        <option value="3"> Hà Nội</option>
+    </SELECT>
+    <br/>   <br/>   <br/>
+    <h3 >District</h3>
+    <select class="district" style="margin-bottom: 20px;">
+        <option value="0">-- choice my district --</option>
+
+    </select>
+</div>
+<script type="text/javascript">
+  function Excute (idCity) {
+   $.ajax(
+       {
+           url:'Data.php',
+           type:'GET',
+           data:{ id:idCity},
+           dataType:'json',
+           success:function (res) {
+               if(res!=null)
+               {
+                   var xhtml='';
+                   $.each(res, function (index, value) {
+                     xhtml+='<option value="'+ value.id+'" > '+ value.name+'</option>';
+                   });
+                   console.log(xhtml);
+                   $('.district').html(xhtml);
+               }
+               else
+               {
+                   $('.district').html('  <option value="0">-- choice my district --</option>');
+               }
+           }
+
+       }
+   );
+  }
+</script>
+</body>
+</html>

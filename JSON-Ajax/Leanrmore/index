@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+</head>
+<body>
+<h1 style="text-align: center"> Learn Jquery Ajax </h1>
+ <div id="content-list" style="margin: 0 auto;width: 1000px; border:  2px solid" >
+
+
+ </div>
+
+<button  id='AI'>Learn more</button>
+<script>
+    $idx=1;
+    if($idx==1)
+    {
+        $('#content-list').load('ACModel.php?count=1');// default when 1 param is method get , 2 param is method post
+    }
+    $('#AI').click(function () {
+        $idx++;
+        $('#content-list').load('ACModel.php?count='+ $idx+' ');
+    });
+
+
+</script>
+</body>
+</html>
