@@ -1,0 +1,29 @@
+DOM  khi tất cả các phần nội dung đã được dựng xong
+$(document). ready () không chờ images
+$(window). ready ()  chờ images
+
+$('#id') nó chuyển thành dom (javascrip) => đối tượng jquery!
+
+có thể thử sử tồn tại của selector( đối tượng jquery) .length
+
+selector giả :event :odd ...
+ // jquery
+Đối với clickvà hầu hết các sự kiện khác , bạn có thể ngăn hành vi mặc định bằng cách gọi event.preventDefault()trong trình xử lý sự kiện
+
+.eachlà một trình vòng lặp được sử dụng để lặp lại chỉ bộ sưu tập các đối tượng jQuery trong khi jQuery.each( $.each) là một hàm chung để lặp lại các đối tượng và mảng javascript.
+
+//Mot so ma giả:
+:password
+:reset
+:radio
+:text
+:submit
+:checkbox
+:button
+:image
+:file
+
+//đối với $.fn Setters trả về một đối tượng jQuery, cho phép bạn tiếp tục gọi các phương thức jQuery trên lựa chọn của bạn.
+
+$('span[][]') có thể query nhiều thuộc tính hoặc chỉ thuộc tính mà không có tag. mỗi DOM cách nhau dấu ,
+ data-id=1 : $('').data('id');
