@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+<ul id="myList"></ul>
+<script>
+    var myItems = [];
+    var myList = $( "#myList" );
+
+    for ( var i = 0; i < 100; i++ ) {
+        myItems.push( "<li>item " + i + "</li>" );
+    }
+
+    myList.append( myItems.join( "" ) );
+</script>
+</body>
+</html>

@@ -17,6 +17,7 @@
 
 <button  id='AI'>Learn more</button>
 <script>
+     console.log($('#AI'));
     $idx=1;
     if($idx==1)
     {

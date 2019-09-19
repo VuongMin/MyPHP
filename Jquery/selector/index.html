@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Demo</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+</head>
+<body>
+<div class="override">
+    <H3>CHƯƠNG TRÌNH ĐÀO TẠO NGÀNH WEBSITE</H3>
+    <OL TYPE="I">
+        <LI class="outside"><B> THIẾT KẾ WEBSITE </B>
+            <OL TYPE = "1">
+                <LI> Ngôn ngữ HTML &amp; ForntPage</LI>
+                <LI> Ngôn ngữ kịch bản JavaScript </LI>
+                <LI> Media Flash MX</LI>
+                <LI> Thiết kế giao diện PhotoShop</LI>
+                <LI> Thiết kế WebSite Dreamweaver MX</LI>
+            </OL>
+        </LI>
+        <LI class="outside" name="name"><B> LẬP TRÌNH WEBSITE </B>
+            <OL TYPE = "2">
+                <LI> Phân tích &amp; Thiết kế CSDL</LI>
+                <LI> Lập trình CSDL ASP.NET &amp; SQL Sever</LI>
+                <LI> Quản trị Website</LI>
+                <LI><B>Đề tài tốt nghiệp </B></LI>
+            </OL>
+        </LI>
+    </OL>
+</div>
+<div class="form" style="margin: 0 auto;width: 800px;border: 1px solid">
+    <h2 class="title">Registration Info</h2>
+    <form id="myForm" method="POST" style="margin: 20px">
+        <div class="input-group">
+            <input class="input--style-3" type="text" placeholder="Name" name="name">
+        </div>
+        <div class="input-group">
+            <input class="input--style-3 js-datepicker" type="text" placeholder="Birthdate" name="birthday">
+            <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+        </div>
+        <div class="input-group">
+            <div class="rs-select2 js-select-simple select--no-search">
+                <select name="gender">
+                    <option disabled="disabled" selected="selected">Gender</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Other</option>
+                </select>
+                <div class="select-dropdown"></div>
+            </div>
+        </div>
+        <div class="input-group">
+            <input class="input--style-3" type="email" placeholder="Email" name="email">
+        </div>
+        <div class="input-group">
+            <input class="input--style-3" type="text" placeholder="Phone" name="phone">
+        </div>
+        <div class="p-t-10">
+            <button class="btn btn--pill btn--green" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+
+<style>
+    .bold{font-style: italic}
+</style>
+<script>
+    $('h3').css('color','red');
+    console.log('$(\'li:first b\').html() :' + $('li:first b').html());//Sử dụng mã giả và truy cập element cây.
+    $('ol[TYPE=1] li:even').css('color','pink');//kết hợp truy vấn thuộc tính của tag
+    $('li[name="name"] b').addClass('bold');
+    // default it will get idx[0] if you console without use foreach
+    $('.outside').each(function (index, value) {
+        console.log($(this).html());
+    });
+    // Setters trả về một đối tượng jQuery, cho phép bạn tiếp tục gọi các phương thức jQuery trên lựa chọn của bạn
+    $( ".override" ).find( "h3" ).eq( 0 ).html( "new text for the third h3!" );
+
+    //================================FORM================================
+    console.log('emlement checked:'+$( "form :checked" ).val());
+    console.log('emlement gender has setting is disabled:'+$( "form :disabled" ).val());
+    console.log('emlement gender is enabled:'+$( "form :enabled" ));//enable is have 9 object
+    console.log('select all function input data:'+$( "form :input" ));
+</script>
+
+
+</body>
+</html>

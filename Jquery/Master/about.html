@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Demo</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <style>
+        .test {
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+<a href="http://jquery.com/">jQuery</a>
+<H3>CHƯƠNG TRÌNH ĐÀO TẠO NGÀNH WEBSITE</H3>
+<OL TYPE="I">
+    <LI class="outside"><B> THIẾT KẾ WEBSITE </B>
+        <OL TYPE = "1">
+            <LI> Ngôn ngữ HTML &amp; ForntPage</LI>
+            <LI> Ngôn ngữ kịch bản JavaScript </LI>
+            <LI> Media Flash MX</LI>
+            <LI> Thiết kế giao diện PhotoShop</LI>
+            <LI> Thiết kế WebSite Dreamweaver MX</LI>
+        </OL>
+    </LI>
+    <LI class="outside" name="name"><B> LẬP TRÌNH WEBSITE </B>
+        <OL TYPE = "2">
+            <LI> Phân tích &amp; Thiết kế CSDL</LI>
+            <LI> Lập trình CSDL ASP.NET &amp; SQL Sever</LI>
+            <LI> Quản trị Website</LI>
+            <LI><B>Đề tài tốt nghiệp </B></LI>
+        </OL>
+    </LI>
+</OL>
+<style>
+    .bold{font-style: italic}
+</style>
+<script>
+    $('h3').css('color','red');
+    console.log('$(\'li:first b\').html() :' + $('li:first b').html());//Sử dụng mã giả và truy cập element cây.
+    $('ol[TYPE=1] li:even').css('color','pink');//kết hợp truy vấn thuộc tính của tag
+    $('li[name="name"] b').addClass('bold');
+    // default it will get idx[0] if you console without use foreach
+    $('.outside').each(function (index, value) {
+        console.log($(this).html());
+    });
+    //create 1 oject dom of jquery
+    $( "<a/>", {
+        html: "This is a <strong>new</strong> link",
+        "class": "new",
+        href: "foo.html"
+    }).insertAfter( "body" );
+</script>
+
+<script>
+
+    $( document ).ready(function() {
+         var oj=$( "a" );
+         oj.addClass('test');
+        oj.click(function( event ) {
+            alert( "The link will no longer take you to jquery.com" );
+            event.preventDefault();
+            $( this ).hide( "slow" );
+            oj.removeClass('test');
+        });
+        //.attr()
+        //$( "a" ).attr( "href", "allMyHrefsAreTheSameNow.html" );
+        // set 1 oject
+        $( "a" ).attr({
+            title: "all titles are the same too!",
+            href: "somethingNew.html"
+        });
+    });
+
+</script>
+</body>
+</html>

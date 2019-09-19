@@ -10,7 +10,7 @@ selector giả :event :odd ...
  // jquery
 Đối với clickvà hầu hết các sự kiện khác , bạn có thể ngăn hành vi mặc định bằng cách gọi event.preventDefault()trong trình xử lý sự kiện
 
-.eachlà một trình vòng lặp được sử dụng để lặp lại chỉ bộ sưu tập các đối tượng jQuery trong khi jQuery.each( $.each) là một hàm chung để lặp lại các đối tượng và mảng javascript.
+.each là một trình vòng lặp được sử dụng để lặp lại chỉ bộ sưu tập các đối tượng jQuery trong khi jQuery.each( $.each) là một hàm chung để lặp lại các đối tượng và mảng javascript.
 
 //Mot so ma giả:
 :password
@@ -27,3 +27,28 @@ selector giả :event :odd ...
 
 $('span[][]') có thể query nhiều thuộc tính hoặc chỉ thuộc tính mà không có tag. mỗi DOM cách nhau dấu ,
  data-id=1 : $('').data('id');
+
+ //tạo một đối tượng dom thông qua jquery
+ $( "<a/>", {
+     html: "This is a <strong>new</strong> link",
+     "class": "new",
+     href: "foo.html"
+ }).insertAfter( "body" )
+
+ //var firstHeading = headings.eq( 0 ) <=> name[index] duyệt mảng ||var firstHeadingElem = $( "h1" ).get( 0 );
+ ||var firstHeadingElem = $( "h1" )[ 0 ];
+
+ //css
+  Setting CSS properties.
+
+ $( "h1" ).css( "fontSize", "100px" ); // Setting an individual property.
+
+ // Setting multiple properties.
+ $( "h1" ).css({
+     fontSize: "100px",
+     color: "red"
+ });
+ //jquery cung có các toán tử = != ^= ~= ...
+
+ .attr() return value of it.
+ .prop() return bool

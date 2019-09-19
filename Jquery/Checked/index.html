@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+     <div class="radio">
+         <h3>SEX</h3>
+      Female:  <input type="radio" name="sex" value="0">
+      Male  : <input type="radio" name="sex" value="1">
+     </div>
+     <div class="checkbox">
+         <div class="gruop1">
+             <h3>sum( 1 +1 ) = ?</h3>
+             one: <input type="checkbox" name="question1" value="0">
+             two:  <input type="checkbox"name="question1" value="1">
+             three:<input type="checkbox" name="question1"value="2">
+             four:<input type="checkbox"name="question1" value="3">
+             <input type="submit" value="answer">
+         </div>
+         <div class="gruop2">
+             <h3>HCM of type of ?</h3>
+             string:<input type="checkbox"name="question2" value="0">
+             bool:<input type="checkbox"name="question2" value="1">
+             int:<input type="checkbox"name="question2" value="2">
+             double:<input type="checkbox" name="question2"value="3">
+             <input type="submit" value="answer">
+         </div>
+     </div>
+     <hr>
+     <div class="result">
+         <div id="sex"></div>
+         <div id="question1"></div>
+         <div id="question2"></div>
+     </div>
+<script>
+    $('.result').attr('style','color:red'); //return value of it when getter
+    //sex
+    var sex= $('input[type="radio"]');//object length ==2
+    sex.on('click',function () {
+        $.each(sex,function (idx,val) {
+            if($(this).prop('checked'))//return  bool
+            {
+                $('#sex').html('you were choose  sex is value :' + $(this).val());
+            }
+        });
+    });
+    //question 1
+    var gr1= $('input[type="checkbox"][name="question1"]');
+    $('.gruop1 input[type="submit"]').on('click',function () {
+         var res='';
+         gr1.each(function (idx,val) {
+              if($(this).prop('checked'))
+              {
+                  res+=$(this).val()+',';
+              }
+         });
+        $('#question1').html('you were choose  answer for question 1 is value :'+res);
+    });
+    //question 2
+    var gr2= $('input[type="checkbox"][name="question2"]');
+    $('.gruop2 input[type="submit"]').on('click',function () {
+        var re='';
+        gr2.each(function (idx,val) {
+            if($(this).prop('checked'))
+            {
+                re+=$(this).val()+',';
+            }
+        });
+        $('#question2').html('you were choose  answer for question 2 is value :'+re);
+    });
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <title>Event Jquery</title>
+</head>
+<body>
+Text :<input  type="text"><br><br>
+Pass: <input type="password" value="000">
+<p>click here!</p>
+<div>param func(event)</div>
+<div id="container">
+    <ul id="list">
+        <li><a href="http://domain1.com">Item #1</a></li>
+        <li><a href="/local/path/1">Item #2</a></li>
+        <li><a href="/local/path/2">Item #3</a></li>
+        <li><a href="http://domain4.com">Item #4</a></li>
+    </ul>
+</div>
+<script>
+    $( "ul" ).on( "click", "li", function() {
+        console.log( "Something in a <ul> was clicked, and we detected that it was an <li> element." );
+    });
+    /*
+    $( "p" ).click(function() {
+        console.log( "You clicked a paragraph!" );
+    });*/
+    //Case 2:
+      /*   $( "p" ).on( "click", function() {
+             console.log( "click" );
+         });*/
+
+    // Multiple events, same handler
+    $( "input[type=\"text\"]" ).on(
+        "click change", // Bind handlers for multiple events
+        function() {
+            console.log( "An input was clicked or changed!" );
+        }
+    );
+    // Binding multiple events with different handlers
+    $('input:last').on({
+        'click':function(){console.log('click')},
+        'mouseover':function () {console.log('mouseover')}
+    });
+    //Đối tượng sự kiện
+$( "div" ).on( "click", function( event ) {
+    console.log( "event object:" );
+    console.dir( event );
+});
+//truyền dữ liệu đến 1 sự kiện
+$( "p" ).on( "click", {
+    foo: "bar"
+}, function( event ) {
+    console.dir(event);
+    console.log( "event data: " + event.data.foo + " (should be 'bar')" );
+});
+
+</script>
+</body>
+</html>
