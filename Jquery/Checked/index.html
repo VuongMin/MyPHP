@@ -28,11 +28,20 @@
              <input type="submit" value="answer">
          </div>
      </div>
+     <div class="dropdown">
+               <select id="skill">
+                   <option value="c#">programming c#</option>
+                   <option value="c++">programming c++</option>
+                   <option value="PHP">programming PHP</option>
+                   <option value="Java">programming Java</option>
+               </select>
+     </div>
      <hr>
      <div class="result">
          <div id="sex"></div>
          <div id="question1"></div>
          <div id="question2"></div>
+         <div id="dropdown"></div>
      </div>
 <script>
     $('.result').attr('style','color:red'); //return value of it when getter
@@ -70,8 +79,12 @@
         });
         $('#question2').html('you were choose  answer for question 2 is value :'+re);
     });
-
-
+    //dropdown
+     var drop = $('#skill');
+      drop.on('change',function () {
+         console.log($('#skill option:selected').text());
+      });
+      $('.radio').prepend('<h1> Vuongmin </h1>');
 
 </script>
 </body>

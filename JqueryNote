@@ -52,3 +52,17 @@ $('span[][]') có thể query nhiều thuộc tính hoặc chỉ thuộc tính m
 
  .attr() return value of it.
  .prop() return bool
+
+ //:checked : radio checkbox
+ //:selected : select option , dropdown
+
+ ==== Mang Json thì nên wrapper bien json sang object jquery khi duyet.
+
+ // Fade in all hidden paragraphs; then add a style class to them (not quite right)
+ $( "p.hidden" ).fadeIn( 750 ).addClass( "lookAtMe" );
+
+ // export dữ liệu ra html ... nếu sài ajax thì export bằng ajax và selector jquery .. nếu xài PHP thì export bằng code php..
+
+Trong mô hình MVC PHP khó chấp nhận đường dẫn tương đối . nên phải dùng các hàm file dirname( , ) và nối đường dẫn.
+
+Để gọi một hàm trong action controller php thì chúng ta truyền tham số trên GET , hoặc chuyển qua bằng đối tượng data:{}.
