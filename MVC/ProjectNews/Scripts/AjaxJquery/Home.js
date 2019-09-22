@@ -18,7 +18,6 @@ var home =
                             $.each(res,function (idx,val) {
                                 //conver typenews to array
                                 var typeNews= this.Typenews.split(',');
-                                console.log(typeNews);
                                  xhtml+='<li href="'+ val.TenKhongDau+'" class="list-group-item menu1">'+val.Ten+'</li>\n' +
                                      '<ul>\n';
                                      $.each(typeNews,function (i,value) {

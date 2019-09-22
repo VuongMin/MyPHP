@@ -7,6 +7,7 @@ class Startup
     private  $Router;
     public  function  Startup()
     {
+
        $this->Router=new Router();
        //Đăng kí và Cần làm gì với url hiện có!
          $this->Router->get('/','HomeController@index');

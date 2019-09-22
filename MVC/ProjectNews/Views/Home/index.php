@@ -4,9 +4,9 @@ require_once '../../Core/Startup.php';
  $run = new  Startup();
 $run->run();
 //=============================================================================
-require  "../../Controllers/HomeController.php";
+require_once "../../Controllers/HomeController.php";
 require_once "../Shared/_Header.html";
-$model= new HomeController();
+$model= new ProjectNews\Controllers\HomeController();
 $slide= $model->slide();
 $news=$model->LoadNews();//news of Homecontroller
 ?>

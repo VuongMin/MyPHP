@@ -77,9 +77,9 @@ class Router
                         if(count(explode('@',$action))==2)
                         {
                             //if have namespace is have to path that + $name_controller
-                            if(class_exists($name_Controller))
+                            if(class_exists('ProjectNews\\Controllers\\'.$name_Controller))
                             {
-                              $home=new  HomeController();
+                              $home=new  ProjectNews\Controllers\HomeController();
                               if(method_exists($home,'index'))
                               {
                                  /* //có 2 chức năng :
