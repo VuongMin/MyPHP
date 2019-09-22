@@ -1,8 +1,14 @@
 <?php
+//run first file Startup config ...
+require_once '../../Core/Startup.php';
+ $run = new  Startup();
+$run->run();
+//=============================================================================
 require  "../../Controllers/HomeController.php";
 require_once "../Shared/_Header.html";
 $model= new HomeController();
 $slide= $model->slide();
+$news=$model->LoadNews();//news of Homecontroller
 ?>
 
     <!-- Page Content -->
@@ -18,7 +24,6 @@ $slide= $model->slide();
                         <li data-target="#carousel-example-generic" data-slide-to="2"></li>
                     </ol>
                     <div class="carousel-inner">
-
 
                         <?php
                         foreach ($slide[0] as $key=>$val)
@@ -50,7 +55,7 @@ $slide= $model->slide();
                     <li href="#" class="list-group-item menu1 active">
                     	Menu
                     </li>
-
+                   <!-- append ajax at here! -->
 
                 </ul>
             </div>
@@ -62,174 +67,48 @@ $slide= $model->slide();
 	            	</div>
 
 	            	<div class="panel-body">
+
 	            		<!-- item -->
-					    <div class="row-item row">
+                        <?php
+                        $xhtml='';
+                         foreach ($news as $key=>$value)
+                         {
+                             $preVal='';
+                             $subtitle=explode(',',$value['Typenews']);
+                             $xhtml.='<div class="row-item row">
 		                	<h3>
-		                		<a href="#">Category</a> |
-		                		<small><a href="loaitin.html"><i>subtitle</i></a>/</small>
-		                		<small><a href="loaitin.html"><i>subtitle</i></a>/</small>
-		                		<small><a href="loaitin.html"><i>subtitle</i></a>/</small>
-		                		<small><a href="loaitin.html"><i>subtitle</i></a>/</small>
-		                		<small><a href="loaitin.html"><i>subtitle</i></a>/</small>
-		                	</h3>
+		                		<a href="#">'. $value['Ten']. '</a> |';
+		                		foreach ($subtitle as $idx=>$val)
+                                {
+                                    if(!is_numeric($val)&&strpos($val,"-")==false&&$val!=$preVal)
+                                    {
+                                        $preVal=$val;
+                                        $xhtml.='<small><a href="loaitin.html"><i>'.$val.'</i></a>/</small>';
+                                    }
+
+                                }
+		                $xhtml.='</h3>
 		                	<div class="col-md-12 border-right">
 		                		<div class="col-md-3">
 			                        <a href="chitiet.html">
-			                            <img class="img-responsive" src="image/320x150.png" alt="">
+			                            <img class="img-responsive" src="../../Scripts/image/' .$value['Hinh'].'" alt="">
 			                        </a>
 			                    </div>
 
 			                    <div class="col-md-9">
-			                        <h3>Project Five</h3>
-			                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, quo, minima, inventore voluptatum saepe quos nostrum provident .</p>
-			                        <a class="btn btn-primary" href="chitiet.html">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
+			                        <h3>'.$value['TieuDe'].'</h3>
+			                        <p>'.$value['TomTat'].'</p>
+			                        <a class="btn btn-primary" href="'.$value['TieuDeKhongDau'].'">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
 								</div>
 
 		                	</div>
-
 							<div class="break"></div>
-		                </div>
+		                </div>';
+                         }
+                         echo $xhtml;
+                        ?>
+
 		                <!-- end item -->
-		                <!-- item -->
-					    <div class="row-item row">
-		                	<h3>
-		                		<a href="#">Category</a> |
-		                		<small><a href="loaitin.html"><i>subtitle</i></a>/</small>
-		                		<small><a href="loaitin.html"><i>subtitle</i></a>/</small>
-		                		<small><a href="loaitin.html"><i>subtitle</i></a>/</small>
-		                		<small><a href="loaitin.html"><i>subtitle</i></a>/</small>
-		                		<small><a href="loaitin.html"><i>subtitle</i></a>/</small>
-		                	</h3>
-		                	<div class="col-md-12 border-right">
-		                		<div class="col-md-3">
-			                        <a href="chitiet.html">
-			                            <img class="img-responsive" src="image/320x150.png" alt="">
-			                        </a>
-			                    </div>
-
-			                    <div class="col-md-9">
-			                        <h3>Project Five</h3>
-			                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, quo, minima, inventore voluptatum saepe quos nostrum provident .</p>
-			                        <a class="btn btn-primary" href="chitiet.html">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
-								</div>
-
-		                	</div>
-
-							<div class="break"></div>
-		                </div>
-		                <!-- end item -->
-						<!-- item -->
-					    <div class="row-item row">
-		                	<h3>
-		                		<a href="#">Category</a> |
-		                		<small><a href="loaitin.html"><i>subtitle</i></a>/</small>
-		                		<small><a href="loaitin.html"><i>subtitle</i></a>/</small>
-		                		<small><a href="loaitin.html"><i>subtitle</i></a>/</small>
-		                		<small><a href="loaitin.html"><i>subtitle</i></a>/</small>
-		                		<small><a href="loaitin.html"><i>subtitle</i></a>/</small>
-		                	</h3>
-		                	<div class="col-md-12 border-right">
-		                		<div class="col-md-3">
-			                        <a href="chitiet.html">
-			                            <img class="img-responsive" src="image/320x150.png" alt="">
-			                        </a>
-			                    </div>
-
-			                    <div class="col-md-9">
-			                        <h3>Project Five</h3>
-			                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, quo, minima, inventore voluptatum saepe quos nostrum provident .</p>
-			                        <a class="btn btn-primary" href="chitiet.html">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
-								</div>
-
-		                	</div>
-
-							<div class="break"></div>
-		                </div>
-		                <!-- end item -->
-						<!-- item -->
-					    <div class="row-item row">
-		                	<h3>
-		                		<a href="#">Category</a> |
-		                		<small><a href="loaitin.html"><i>subtitle</i></a>/</small>
-		                		<small><a href="loaitin.html"><i>subtitle</i></a>/</small>
-		                		<small><a href="loaitin.html"><i>subtitle</i></a>/</small>
-		                		<small><a href="loaitin.html"><i>subtitle</i></a>/</small>
-		                		<small><a href="loaitin.html"><i>subtitle</i></a>/</small>
-		                	</h3>
-		                	<div class="col-md-12 border-right">
-		                		<div class="col-md-3">
-			                        <a href="chitiet.html">
-			                            <img class="img-responsive" src="image/320x150.png" alt="">
-			                        </a>
-			                    </div>
-
-			                    <div class="col-md-9">
-			                        <h3>Project Five</h3>
-			                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, quo, minima, inventore voluptatum saepe quos nostrum provident .</p>
-			                        <a class="btn btn-primary" href="chitiet.html">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
-								</div>
-
-		                	</div>
-
-							<div class="break"></div>
-		                </div>
-		                <!-- end item --><!-- item -->
-					    <div class="row-item row">
-		                	<h3>
-		                		<a href="#">Category</a> |
-		                		<small><a href="loaitin.html"><i>subtitle</i></a>/</small>
-		                		<small><a href="loaitin.html"><i>subtitle</i></a>/</small>
-		                		<small><a href="loaitin.html"><i>subtitle</i></a>/</small>
-		                		<small><a href="loaitin.html"><i>subtitle</i></a>/</small>
-		                		<small><a href="loaitin.html"><i>subtitle</i></a>/</small>
-		                	</h3>
-		                	<div class="col-md-12 border-right">
-		                		<div class="col-md-3">
-			                        <a href="chitiet.html">
-			                            <img class="img-responsive" src="image/320x150.png" alt="">
-			                        </a>
-			                    </div>
-
-			                    <div class="col-md-9">
-			                        <h3>Project Five</h3>
-			                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, quo, minima, inventore voluptatum saepe quos nostrum provident .</p>
-			                        <a class="btn btn-primary" href="chitiet.html">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
-								</div>
-
-		                	</div>
-
-							<div class="break"></div>
-		                </div>
-		                <!-- end item -->
-						<!-- item -->
-					    <div class="row-item row">
-		                	<h3>
-		                		<a href="#">Category</a> |
-		                		<small><a href="loaitin.html"><i>subtitle</i></a>/</small>
-		                		<small><a href="loaitin.html"><i>subtitle</i></a>/</small>
-		                		<small><a href="loaitin.html"><i>subtitle</i></a>/</small>
-		                		<small><a href="loaitin.html"><i>subtitle</i></a>/</small>
-		                		<small><a href="loaitin.html"><i>subtitle</i></a>/</small>
-		                	</h3>
-		                	<div class="col-md-12 border-right">
-		                		<div class="col-md-3">
-			                        <a href="chitiet.html">
-			                            <img class="img-responsive" src="image/320x150.png" alt="">
-			                        </a>
-			                    </div>
-
-			                    <div class="col-md-9">
-			                        <h3>Project Five</h3>
-			                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, quo, minima, inventore voluptatum saepe quos nostrum provident .</p>
-			                        <a class="btn btn-primary" href="chitiet.html">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
-								</div>
-
-		                	</div>
-
-							<div class="break"></div>
-		                </div>
-		                <!-- end item -->
-
 					</div>
 	            </div>
         	</div>

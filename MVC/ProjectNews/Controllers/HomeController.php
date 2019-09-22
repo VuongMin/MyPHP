@@ -1,4 +1,5 @@
 <?php
+
 require_once dirname(__FILE__,2) . "\Models\HomeModel.php";
 //Pick up event from ajax function call ..$_GET
 if(isset($_REQUEST['action']))
@@ -12,6 +13,7 @@ if(isset($_REQUEST['action']))
           }
       }
 }
+
 class HomeController
 {
 
@@ -24,6 +26,11 @@ class HomeController
         $model = new  HomeModel();
        $res=  $model->getSlide();
         return array($res);
+     }
+     public  function  LoadNews()
+     {
+         $model=new HomeModel();
+         return $model->getNews();
      }
      //use ajax to load data
     public  function multilevel_Menu()
