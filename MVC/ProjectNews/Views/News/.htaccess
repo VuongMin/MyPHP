@@ -1,0 +1,4 @@
+#Phải để cùng thư mực với file index cần chạy!
+RewriteEngine On
+RewriteRule ^([0-9]+)$                       index.php?id=$1
+RewriteRule ^([a-zA-Z0-9_-]+)_([0-9]+)$      Detail.php?alias=$1&id=$2

@@ -11,6 +11,7 @@ $slide= $model->slide();
 $news=$model->LoadNews();//news of Homecontroller
 ?>
 
+
     <!-- Page Content -->
     <div class="container">
 

@@ -66,3 +66,14 @@ $('span[][]') có thể query nhiều thuộc tính hoặc chỉ thuộc tính m
 Trong mô hình MVC PHP khó chấp nhận đường dẫn tương đối . nên phải dùng các hàm file dirname( , ) và nối đường dẫn.
 
 Để gọi một hàm trong action controller php thì chúng ta truyền tham số trên GET , hoặc chuyển qua bằng đối tượng data:{}.
+
+Bên asp thì return vể json , PHP : echo json_end( $_).
+
+// dấu \ trước class lấy ngay cái thằng đó!
+ public  function  slide()
+       {
+          $model = new  \HomeModel();
+         $res=  $model->getSlide();
+          return array($res);
+       }
+ //Sử dụng đối tượng ở ngoài namespace thì new /model()

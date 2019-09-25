@@ -31,6 +31,13 @@
                 GROUP BY theloai.id';
             return $this->db->Execute($sql);
         }
+        public  function  LoadSearch($key)
+        {
+            $sql="SELECT tintuc.TieuDe
+                  FROM tintuc
+                  WHERE tintuc.TieuDe LIKE '%$key%' ";
+            return $this->db->Execute($sql);
+        }
     }
 
 

@@ -13,8 +13,20 @@
 <script src="../../Scripts/js/bootstrap.min.js"></script>
 <script src="../../Scripts/js/my.js"></script>
 <!--My javascript -->
+<script src="../../Scripts/AjaxJquery/Home.js"></script>
 <script>
     $('.carousel-inner div:first').addClass('active');
+    //redirect
+   function redirect() {
+       $.ajax({
+           method: "GET",
+           url: "../News/index.php",
+           success:function (res) {
+               console.log(res);
+           }
+       });
+
+   }
 </script>
 
 </body>

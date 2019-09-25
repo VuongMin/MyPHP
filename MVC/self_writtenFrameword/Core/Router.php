@@ -1,4 +1,5 @@
 <?php
+namespace  self_writtenFrameword\Core;
 
 class Router
 {
@@ -7,7 +8,7 @@ class Router
         private  function  getRequsetURL()
         {
            $url= isset($_SERVER['REQUEST_URI'])?$_SERVER['REQUEST_URI']:'/'; // '/' will have config.
-            $url=str_replace(Startup::getConfig()['basePath'],'',$url);
+            $url=str_replace(\Startup::getConfig()['basePath'],'',$url);
             $url=$url ==='/' ||empty($url) ?'/':$url;
             return $url;
         }
@@ -66,6 +67,7 @@ class Router
                                call_user_func_array($action,$sparams);
                                 return;
                             }
+                            $checkActionResult=true;
                         }
                        //die();
                     }
@@ -77,11 +79,11 @@ class Router
                         if(count(explode('@',$action))==2)
                         {
                             //if have namespace is have to path that + $name_controller
-                            if(class_exists('ProjectNews\\Controllers\\'.$name_Controller))
+                            if(class_exists('self_writtenFrameword\\Controllers\\'.$name_Controller))
                             {
-                                $x='ProjectNews\\Controllers\\' .$name_Controller;
+                                $x='self_writtenFrameword\\Controllers\\' .$name_Controller;
                                $this_controller=new $x;
-                              if(method_exists($this_controller,'index'))
+                              if(method_exists($this_controller,$name_actionresult))
                               {
                                  /* //có 2 chức năng :
                                   +thực thi hàm và truyền vào một mảng tham số.

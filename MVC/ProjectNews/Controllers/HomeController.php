@@ -2,27 +2,38 @@
 namespace ProjectNews\Controllers;
 require_once dirname(__FILE__,2) . "\Models\HomeModel.php";
 //Pick up event from ajax function call ..$_GET
-if(isset($_REQUEST['action']))
+if(isset($_REQUEST))
 {
-      switch ($_REQUEST['action'])
-      {
-          case 'menu':
-          {
-              $call=new HomeController();
-              $call->multilevel_Menu();
-          }
-      }
+    if(isset($_REQUEST['action']))
+    {
+        switch ($_REQUEST['action'])
+        {
+            case 'menu':
+            {
+                $call=new HomeController();
+                $call->multilevel_Menu();
+                break;
+            }
+        }
+    }elseif (isset($_REQUEST['key']))
+    {
+        $model=new \HomeModel();
+        echo json_encode($model->LoadSearch($_REQUEST['key']));
+    }
 }
+
 
 class HomeController
 {
 
-   public  function HomeController(){}
+   public  function __construct ()
+   {
 
+   }
 
     public  function  index()
     {
-        echo "<br>This is trang index!";
+
     }
     public  function  slide()
      {
@@ -39,6 +50,10 @@ class HomeController
     public  function multilevel_Menu()
     {
         $model=new  \HomeModel();
-        echo json_encode($model->getMenu()) ;//return 1 object json.
+        echo json_encode($model->getMenu());//return 1 object json.
     }
+
+    /**
+     * @param mixed $keyload
+     */
 }
