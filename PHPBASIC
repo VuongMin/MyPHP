@@ -1,0 +1,145 @@
+1- sự khác biệt giữa php5 và php 7
+	Hiệu năng :Kỹ thuật mới này cải thiện hiệu suất nhiều gấp hai lần với mức sử dụng bộ nhớ được tối ưu hóa.
+	
+	Trong PHP 5, lập trình viên không thể khai báo kiểu trả về của một hàm ,PHP 7 cho phép các lập trình viên khai báo kiểu trả về của các hàm theo giá trị trả về mong muốn.
+	Có bốn kiểu trả về khác nhau - bool, int, string và float.
+	
+	PHP7 hỗ trợ Các lớp vô danh
+					// PHP 7+ code
+				$util->setLogger(new class {
+					public function log($msg)
+					{
+						echo $msg;
+					}
+});
+	PHP7 giới thiệu một toán tử mới (<=>) gọi là toán tử so sánh kết hợp
+	
+2 sự khác biệt giữa html5 - html 4 và một số đặc tính
+		HTML5 được phát hành với mục đích chính là cải thiện trải nghiệm người dùng World Wide Web
+		
+		HTML5 sử dụng web SQL databases, application cache để lưu dữ liệu tạm, trong khi đó, HTML chỉ có cache của trình duyệt được dùng cho mục đích này.
+
+		Một khác biệt nữa giữa HTML và HTML5 đáng nhắc đến là HTML không cho phép JavaScript chạy trong web browser (thay vì vậy nó chạy trong interface thread của browser), trong khi đó HTML5 hỗ trợ hoàn toàn cho JavaScript để chạy nền (nhờ vào JS web worker API của HTML5).
+		
+		HTML5 hỗ trợ nhiều loại điều khiển form, ví dụ: ngày giờ, email, số lượng, khoảng, số điện thoại, URL, tìm kiếm, 
+3 một số đặc tính vượt chội của css3
+		Các tính năng được bao gồm trong CSS3 bao gồm hỗ trợ cho các bộ chọn bổ sung, đổ bóng, góc tròn, nhiều hình nền, hình động, độ trong suốt ..vv... Nó chứa “thuộc tính CSS” (đã được chia thành các phần nhỏ hơn). Ngoài ra còn có các mô-đun mới được thêm vào. Một số mô-đun quan trọng nhất trong CSS3 là:
+
+		Bộ chọn
+		Mô hình hộp
+		Hình nền và đường viền
+		Giá trị hình ảnh và nội dung thay thế
+		Hiệu ứng văn bản
+		Chuyển đổi 2D / 3D
+		Ảnh động
+		Bố cục nhiều cột
+		Giao diện người dùng	
+
+4 các lệnh git căn băn
+	$ git init
+	
+	Sao chép một kho chứa đã tồn tại
+	$ git clone https://github.com/user/repository.git
+
+	Nhánh trong git
+	Khi sử dụng Git, bạn có thể tạo ra nhiều nhánh (branch) khác nhau. Câu lệnh Git này dùng để kiểm tra branch hiện tại:
+
+	$ git branch
+	Để tạo mới một branch:
+
+	 $ git branch <name_branch>
+	 
+	 Cập nhật thay đổi
+		Sau khi bạn thay đổi source code: thêm mới, sửa, xoá files,… Bạn cần phải cập nhật lên Staging Area. Để cập nhật hết các files:
+
+		$ git add .Sau lệnh add, bạn cần sử dụng câu lệnh Commit để đây thông tin thay đổi lên Local Respository:
+
+		$ git commit -m "Message"
+		
+		Cập nhật lên server
+		Sau câu lệnh Commit, thông tin mới chỉ được cập nhật lên Local Repository. Nếu muốn cập nhật lên server thì bạn phải sử dụng câu lệnh push:
+
+		$ git push origin <name_branch>
+
+5 hàm sử lí tring
+	addslashes ( $str ) :Hàm này sẽ thêm dấu gách chéo trước những ký tự (‘, “, \) trong chuỗi $str.
+	
+	explode ( $delimiter , $string):Hàm này sẽ chuyển một chuỗi $string thành một mảng các phần tử với ký tự tách mảng là $delimiter.
+ 
+	implode($delimiter, $piecesarray):Hàm này ngược với hàm explode, nó chuyển một mảng $piecesarray thành chuỗi và mỗi phần tử cách nhau bởi chuỗi $delimiter
+	
+	strlen($string):Hàm này đếm số ký tự của chuỗi $string.\
+	
+	str_replace( $chuoi_tim, $chuoi_thay_the, $chuoi_nguon ):Hàm này tìm kiếm và thay thế chuỗi.
+	
+	md5( $str)
+	
+	substr( $string,  $start, $length ):Hàm này lấy một chuỗi con nằm trong chuỗi $str bắt đầu từ ký tự thứ $start và chiều dài $length.
+	
+	strpos($str, $chuoi_tim ):Tìm vị trí của chuỗi $chuoi_tim trong chuỗi $str, kết quả trả về false nếu không tìm thấy.
+	
+	strtolower($str),strtoupper($string ),trim($string, $ky_tu)\
+	
+6 hàm sử lí mảng
+	1. array_change_key_case($array, $case)
+
+	Chuyển tất cả các key trong mảng $array sang chữ hoa nếu $case = 1 và sang chữ thường nếu $case = 0. Ta có thể dùng hằng số CASE_UPPER thay cho số 1 và CASE_LOWER thay cho số 0.
+
+	2. array_combine($array_keys, $array_values)
+
+	Trộn 2 mảng $array_keys và $array_values thành một mảng kết hợp với $array_keys là danh sách keys, $array_value là danh sách value tương ứng với key. Điều kiện là 2 mảng này phải bằng nhau.
+
+	$array_keys = array('a', 'b', 'c');
+	$array_values = array('one', 'two', 'three');
+	print_r(array_combine($array_keys, $array_values));
+	/* kết quả:
+	Array(
+	[a] => one
+	[b] => two
+	1 => three;
+	)*/;
+	 
+	 3. array_count_values ( $array ):Đếm số lần xuất hiện của các phần tử giống nhau trong mảng $array và trả về một mảng kết quả.
+
+	array_push(&$array, $add_value1, $add_value2, $add_value…):Thêm vào cuối mảng $array một hoặc nhiều phần tử với các giá trị tương ứng biến $add_value truyền vào.
+
+	5. array_pop(&$array):Xóa trong mảng $array phần tử cuối cùng và trả về phần tử đã xóa.
+
+	. is_array($variable):Kiểm tra một biến có phải kiểu mảng hay không, kết quả trả về true nếu phải và false nếu không phải.
+
+	in_array($needle, $haystackarray):Kiểm tra giá trị $needle có nằm trong mảng $haystackarray không. trả về true nếu có và flase nếu không có.
+
+	 array_key_exists($key, $searcharray):Kiểm tra key $key có tồn tại trong mảng $searcharray không, trả về true nếu có và false nếu không có.
+
+	.array_unique( $array ):Loại bỏ giá trị trùng trong mảng $array.
+
+7 kiểu dữ liệu của ajax - mysql 
+
+	url : chuỗi chứa đường dẫn tới file cần lấy và trả về dữ liệu
+	type : phương thức gửi đi tương tự như của “ <form> ”, mặc định là “GET” nếu như các bạn không truyền vào.
+	dataType : xác định dữ liệu trả về thuộc dạng nào? Nếu các bạn không truyền thì jQuery tự động nhận biết kiểu dữ liệu (script, html, json…). Tuy nhiên, tôi khuyến cáo các bạn nên truyền vào đầy đủ để nhận dữ liệu chính xác nhất. Và thông dụng nhất chính là “html”.
+	data : truyền dữ liệu sang đường dẫn chỉ định để thực hiện xử lý và trả về dữ liệu. Tương tự như cách truyền dữ liệu của phương thức “ post() ”.
+	“ done() ” : ở loạt các bài viết hướng dẫn các bài viết về kĩ thuật Ajax với phương thức “ ajax() ” trước đây trên Internet. Thay vì dùng “done()” chúng ta sẽ dùng thuộc tính “success” trong đối tượng truyền vào “ ajax() ” nhưng từ các phiên bản mới hơn của jQuery. Họ khuyến cáo chúng ta nên sử dụng các phương thức như “ done() , fail() , always() ” (Tương ứng: Hoàn thành, thất bại và luôn luôn thực hiện). Nên tùy vào nhu cầu mà bạn xài phương thức tương ứng. Và nên nhớ là đi kèm với phương thức “ ajax() ” hoặc lưu vào một tên biến rồi dùng sau để nhận kết quả trả về.
+	Các bạn có thể xem 
+
+8 tìm kiếm phần tử
+
+	in-array 
+	str-pos: chuỗi
+
+9 sơ lược về chức năng web
+
+ xem sản phẩm và tìm kiếm sản phẩm 
+ 
+ admin :xem- thêm sửa xóa.
+ 
+
+10 mô hình cơ sở dữ liệu
+
+account ,thanh vien , giao dich,loai trang phuc 
+
+1- thành viên có thể có 1 hoặc nhiều giao dịch
+
+1 -thành viên có thể có lượt sử huux nhiều tài khoản
+
+1- 1 tài khoản có nhiểu trang phục
