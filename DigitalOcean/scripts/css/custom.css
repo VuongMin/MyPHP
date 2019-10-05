@@ -1,0 +1,50 @@
+
+.nav-top a,.nav-top
+{
+    color: #5b6987;
+    height: 40px;
+}
+.nav-top p>a:hover,#navbarSupportedContent a:hover
+{
+    color: blue;
+    text-decoration: none;
+}
+.navbar-top{
+    height: 65px;
+}
+h1{
+    font-size: 36px;
+    margin-bottom: 16px ;
+    text-align: center;
+}
+.paragraph
+{
+margin-top: 60px;
+}
+#myTab
+{
+    width: 1168px;
+    margin: 0 auto;
+}
+#myTab a{
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    color:#BDBDBD;
+}
+#myTab a:active
+{
+    color: #0b2e13;
+}
+#myTabContent{
+    margin: 60px;
+}
+.fast-answer
+{
+    font-size: 20px;
+}
+.fast-answer a{text-decoration: underline}
+form{width: 886px; margin: 0 auto}
+.form-control{
+height: 50px;
+}
