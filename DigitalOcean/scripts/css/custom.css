@@ -1,4 +1,7 @@
-
+.nav a{
+    font-weight: bold;
+    font-size: 13px;
+}
 .nav-top a,.nav-top
 {
     color: #5b6987;
@@ -11,6 +14,7 @@
 }
 .navbar-top{
     height: 65px;
+    font-weight: bold;
 }
 h1{
     font-size: 36px;
@@ -47,4 +51,19 @@ margin-top: 60px;
 form{width: 886px; margin: 0 auto}
 .form-control{
 height: 50px;
+}
+.footer{
+    margin-top: 100px;
+    background: #010e28;
+    padding-top: 96px;
+}
+.nav-link
+{
+    color:#808693 ;
+}
+/*
+Access to the DOM use properties and Mã giả of element.*/
+ul[class='nav flex-column'] li:first-child a
+{
+  font-size: 15px;
 }

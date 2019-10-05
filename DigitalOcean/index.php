@@ -18,8 +18,8 @@
 <div class="container-fluid">
     <div class="row nav-top">
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                <p style="line-height: 40px;" >
-                    <span class="btn btn-info" style="    text-transform: uppercase;font-size:11px ;width: 38px;height: 19px;line-height: 6px;padding-left:5px;color: #031b4e;  ">New</span>
+                <p style="line-height: 40px;font-weight:bold;font-size: 12px" >
+                    <span class="btn btn-info" style="  font-weight: bold;  text-transform: uppercase;font-size:10px ;width: 38px;height: 19px;line-height: 6px;padding-left:5px;color: #031b4e;  ">New</span>
                     <a href="" >
                         Fresh features and 1-Click Apps for DigitalOcean Kubernetes
                     </a></p>
@@ -29,7 +29,7 @@
                 <ul class="nav justify-content-end">
 
                     <li class="nav-item">
-                        <a class="nav-link " href="#">Docs</a>
+                        <a  class="nav-link " href="#">Docs</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Support</a>
@@ -101,7 +101,7 @@
     <hr style="margin: 0;padding: 0"/>
 </div>
 <div class="container">
-    <div class="row ">
+    <div class="row "style="background: #fafbfc" >
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 paragraph">
             <h1 >Get in touch</h1>
             <p style=" margin: 0 auto;width:900px;text-align: center;font-size: 20px ">Have a question? Send us a note using the form below and someone from the DigitalOcean team will be in touch soon.</p>
@@ -109,24 +109,24 @@
     </div>
 </div>
 <!--End paragraph question. -->
-<div class="container-fluid" style="margin-top: 64px;">
-    <div class="row">
+<div class="container-fluid" >
+    <div class="row ">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item" style="width: 386px">
+                <li class="nav-item" style="width: 386px; background: #fafbfc;">
                     <a class="nav-link active" id="tab-support" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
                         Need Support?<br/>
                         <span  style="color: rgba(3,27,78,.25)">Open a support ticket and get help, fast</span>
                     </a>
 
                 </li>
-                <li class="nav-item"style="width: 386px">
+                <li class="nav-item"style="width: 386px;background: #fafbfc; ">
                     <a class="nav-link" id="tab-sale" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">
                         Sales Inquiries<br/>
                         <span class="" style="color: rgba(3,27,78,.25)">Contact sales about large deployments</span>
                     </a>
                 </li>
-                <li class="nav-item" style="width: 386px">
+                <li class="nav-item" style="width: 386px ;background: #fafbfc;">
                     <a class="nav-link" id="tab-report" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">
                         Report Abuse<br/>
                         <span class=""style="color: rgba(3,27,78,.25)" >Report any abuse or suspicious activity</span>
@@ -174,7 +174,7 @@
                                 <input type="text" class="form-control" id="inputAddress2" placeholder="Brief description of how DigitalOcean can help you">
                             </div>
                             <br/>
-                            <button type="submit" class="btn btn-primary">Sign in</button>
+                            <button  style="width: 443px;float: right;height: 48px;" type="submit" class="btn btn-primary">Sign in</button>
                         </form>
                     </div>
                 </div>
@@ -214,21 +214,21 @@
                                 </div>
                                 <div class="form-group col-md-12">
                                     <p>Which products & services are you considering using in this project?</p>
-                                    <input type="checkbox" name="" value="" >Droplets (VMs)<br/>
-                                    <input type="checkbox" name="" value="" >Managed Kubernetes<br/>
-                                    <input type="checkbox" name="" value="" >Spaces Object Storage<br/>
-                                    <input type="checkbox" name="" value="" >Volumes Block Storage<br/>
-                                    <input type="checkbox" name="" value="" >Managed Databases<br/>
-                                    <input type="checkbox" name="" value="" >Premier Support<br/>
-                                    <input type="checkbox" name="" value="" >Networking Tools (LBs, Firewalls, Floating IPs)<br/>
-                                    <input type="checkbox" name="" value="" >Developer Tools (API, Monitoring, Team Accounts)<br/>
+                                    <input type="checkbox" name="" value="" > Droplets (VMs)<br/>
+                                    <input type="checkbox" name="" value="" > Managed Kubernetes<br/>
+                                    <input type="checkbox" name="" value="" > Spaces Object Storage<br/>
+                                    <input type="checkbox" name="" value="" > Volumes Block Storage<br/>
+                                    <input type="checkbox" name="" value="" > Managed Databases<br/>
+                                    <input type="checkbox" name="" value="" > Premier Support<br/>
+                                    <input type="checkbox" name="" value="" > Networking Tools (LBs, Firewalls, Floating IPs)<br/>
+                                    <input type="checkbox" name="" value="" > Developer Tools (API, Monitoring, Team Accounts)<br/>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <textarea style="width: 100%" type="" name="" placeholder="What is the biggest challenge you are trying to solve with this project?"></textarea>
                                 </div>
                             </div>
 
-                                <button style="" type="submit" class="btn btn-primary float-left">Sign in</button>
+                                <button  style="width: 100%;height: 48px" type="submit" class="btn btn-primary float-right">Send Message</button>
 
                         </form>
                     </div>
@@ -263,6 +263,178 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!---footer -->
+<div class="container-fluid">
+    <div class="row footer">
+        <div class="container">
+            <div class="row">
+                <div style="margin:0 auto;" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 ">
+
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a style="color: white" class="nav-link active" href="#">Company</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Leadership</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#">Careers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#">Partners</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#">Referral Program</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#">Press</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#">Legal & Security</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    <ul class="nav flex-column">
+                        <li   class="nav-item">
+                            <a style="color: white" class="nav-link " href="#">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Products Overview</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Droplets</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#">Kubernetes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Managed Databases</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Spaces</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Marketplace</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Load Balancers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Block Storage</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Tools & Integrations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">API</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Pricing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Documentation</a>
+                        </li><li class="nav-item">
+                            <a class="nav-link active" href="#">Release Notes</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a style="color: white" class="nav-link active" href="#">Community</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Tutorials</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Meetups</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#">Q&A</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#">Write for DOnations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#">Droplets for Demos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#">Hatch Startup Program</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#">Shop Swag</a>
+                        </li> <li class="nav-item">
+                            <a class="nav-link " href="#">Research Program</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#">Currents Research</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#">Open Source</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a style="color: white;" class="nav-link active" href="#">Solutions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Web & mobile apps</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Website hosting</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#">Big data</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#">Managed services</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a style="color: white" class="nav-link active" href="#">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Support</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Sales</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#">Report Abuse</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#"> System Status</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr style="background:white"/>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <p style="   color:#808693 ;font-weight: 500;font-size: 15px">© 2019 DigitalOcean, LLC. All rights reserved.</p>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
                 </div>
             </div>
         </div>
