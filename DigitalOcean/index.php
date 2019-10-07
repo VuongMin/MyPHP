@@ -1,3 +1,7 @@
+<?php
+session_start();
+$frm_error=isset($_SESSION['frm_error'])?$_SESSION['frm_error']:null;
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +14,7 @@
     <!-- Custom fonts for this template-->
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="scripts/css/custom.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <script src="bootstrap/lib/jquery-3.4.1.min.js"></script>
     <script src="bootstrap/lib/popper.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
@@ -19,10 +24,10 @@
     <div class="row nav-top">
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <p style="line-height: 40px;font-weight:bold;font-size: 12px" >
-                    <span class="btn btn-info" style="  font-weight: bold;  text-transform: uppercase;font-size:10px ;width: 38px;height: 19px;line-height: 6px;padding-left:5px;color: #031b4e;  ">New</span>
+                    <span class="btn btn-info" style="  font-weight: bold;  text-transform: uppercase;font-size:10px ;width: 38px;height: 19px;line-height: 5px;padding-left:5px;color: #031b4e;  ">New</span>
                     <a href="" >
                         Fresh features and 1-Click Apps for DigitalOcean Kubernetes
-                    </a></p>
+                    </a><i class="fas fa-angle-right"></i></p>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
             <nav  class="header">
@@ -100,28 +105,27 @@
     <!-- End Navbar--->
     <hr style="margin: 0;padding: 0"/>
 </div>
-<div class="container">
-    <div class="row "style="background: #fafbfc" >
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 paragraph">
+<div class="container" >
+    <div class="row " style="background: #fafbfc">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 paragraph" >
             <h1 >Get in touch</h1>
-            <p style=" margin: 0 auto;width:900px;text-align: center;font-size: 20px ">Have a question? Send us a note using the form below and someone from the DigitalOcean team will be in touch soon.</p>
+            <p style=" margin: 0 auto;width:850px;text-align: center;font-size: 20px;color: #808693; ">Have a question? Send us a note using the form below and someone from the DigitalOcean team will be in touch soon.</p>
         </div>
     </div>
-</div>
-<!--End paragraph question. -->
-<div class="container-fluid" >
-    <div class="row ">
+    <!--tabs-->
+    <div class="row " >
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <!-- My tabs--->
+            <ul class="nav nav-tabs" id="myTab" role="tablist"style="background: #fafbfc;padding-top: 50px; ">
                 <li class="nav-item" style="width: 386px; background: #fafbfc;">
-                    <a class="nav-link active" id="tab-support" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
+                    <a class="nav-link active"  id="tab-support" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
                         Need Support?<br/>
                         <span  style="color: rgba(3,27,78,.25)">Open a support ticket and get help, fast</span>
                     </a>
 
                 </li>
                 <li class="nav-item"style="width: 386px;background: #fafbfc; ">
-                    <a class="nav-link" id="tab-sale" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">
+                    <a class="nav-link" id="tab-sale"  data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">
                         Sales Inquiries<br/>
                         <span class="" style="color: rgba(3,27,78,.25)">Contact sales about large deployments</span>
                     </a>
@@ -134,8 +138,10 @@
                 </li>
             </ul>
             <!--End my tabs-->
+            <!--tabs content-->
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <!-- Tabs-support-->
                     <div class="container">
                         <p class="fast-answer" style="text-align: center">
                             Existing customer?
@@ -144,40 +150,55 @@
                             Need a fast answer? Search our
                             <a href="https://www.digitalocean.com/community/questions">Community Q&amp;A</a>.
                         </p>
-                        <form>
+                        <form id="frm_support" action="core/process.php" method="post">
                             <div class="form-row ">
-                                <div class="form-group col-md-6">
-                                    <input  type="text" class="form-control" id="" placeholder="Name">
+                                <div  class="form-group col-md-6">
+                                    <div class="error">
+                                        <?php echo  ($frm_error!=null&&!empty($frm_error['name']))?"<li style=\" margin-left:13px;font-size:13px ;color: red;font-weight: bold\">".$frm_error['name']." </li>":""; ?>
+                                        <input  style="border: none" type="text" class="form-control" name="name" placeholder="Name">
+                                    </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="email" class="form-control" id="" placeholder="Email">
+                                    <div class="error">
+                                        <?php echo  ($frm_error!=null&&!empty($frm_error['Email']))?"<li style=\" margin-left:13px;font-size:13px ;color: red;font-weight: bold\">".$frm_error['Email']." </li>":""; ?>
+                                        <input style="border: none" type="email" class="form-control" name="email" placeholder="Email">
+                                    </div>
+
                                 </div>
                             </div>
                             <div class="form-group">
-                                <select id="inputState" class="form-control">
-                                    <option selected>Reason for getting in touch</option>
-                                    <option>Account / Control Panel</option>
-                                    <option>App / Website</option>
-                                    <option>Billing</option>
-                                    <option>Droplets</option>
-                                    <option>Networking</option>
-                                    <option>Something is Broken</option>
-                                    <option>Spaces</option>
-                                    <option>Volumes</option>
-                                    <option>Other</option>
+                                <select  style="height: 48px;"  class="form-control">
+                                    <option value="0"  selected >Reason for getting in touch</option>
+                                    <option value="1">Account / Control Panel</option>
+                                    <option value="2">App / Website</option>
+                                    <option value="3">Billing</option>
+                                    <option value="4">Droplets</option>
+                                    <option value="5">Networking</option>
+                                    <option value="6">Something is Broken</option>
+                                    <option value="7">Spaces</option>
+                                    <option value="8">Volumes</option>
+                                    <option value="9">Other</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="inputAddress2" placeholder="Subject">
+                                <div class="error">
+                                    <?php echo  ($frm_error!=null&&!empty($frm_error['Email']))?"<li style=\" margin-left:13px;font-size:13px ;color: red;font-weight: bold\">".$frm_error['subject']." </li>":""; ?>
+                                    <input type="text"  style="border: none"class="form-control" name="subject" placeholder="Subject">
+                                </div>
                             </div>
                             <div class="form-row">
-                                <input type="text" class="form-control" id="inputAddress2" placeholder="Brief description of how DigitalOcean can help you">
+                                <div class="error">
+                                    <?php echo  ($frm_error!=null&&!empty($frm_error['Email']))?"<li style=\" margin-left:13px;font-size:13px ;color: red;font-weight: bold\">".$frm_error['descripton']." </li>":""; ?>
+                                    <textarea type="text" style="height: 68px;width: 895px" class="form-control" name="descripton" placeholder="Brief description of how DigitalOcean can help you"></textarea>
+                                </div>
                             </div>
                             <br/>
-                            <button  style="width: 443px;float: right;height: 48px;" type="submit" class="btn btn-primary">Sign in</button>
+                            <br/>
+                            <input  style="width: 443px;float: right;height: 48px;" style="border: none" type="submit"  name="submit" class="btn btn-primary" value="Sign in" />
                         </form>
                     </div>
                 </div>
+                <!---tabs sales -->
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <div class="container">
                         <form>
@@ -228,7 +249,7 @@
                                 </div>
                             </div>
 
-                                <button  style="width: 100%;height: 48px" type="submit" class="btn btn-primary float-right">Send Message</button>
+                            <input  style="width: 100%;height: 48px" name="submit" type="submit" class="btn btn-primary float-right" value="Send Message">
 
                         </form>
                     </div>
@@ -237,38 +258,61 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="" class="col-sm-2 control-label"></label>
+
+                                    <select class="form-control" id="">
+                                        <option value="0">Select Abuse Type</option>
+                                        <option value="1">DMCA Takedown</option>
+                                        <option value="2">Trademark Infringement</option>
+                                        <option value="3">Spam</option>
+                                        <option value="4">Phishing</option>
+                                        <option value="5">Malware</option>
+                                        <option value="6">Botnet</option>
+                                        <option value="7">Bruteforce/PortScan</option>
+                                        <option value="8">Child Abuse</option>
+                                        <option value="9">Violent Threats and Harassment</option>
+                                        <option value="10">Other</option>
+
+                                    </select>
+
+                                </div>
+                                <p style="text-align: center;color: #808693;margin-top: 40px;">Please select an abuse type above</p>
 
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                    <p>
-                                        Trademark abuse is the unauthorized use of a trademark on
-                                        or in connection with goods or services in a way that is
-                                        likely to cause confusion about the source of the goods or
-                                        services.
-                                    </p>
-                                    <p>
-                                        Trademarks are national or regionally registered symbols,
-                                        words, signs, or names used to identify or distinguish the
-                                        brand, goods, or services of a company or individual. Each
-                                        country or region has their own specific laws and authorities
-                                        around trademark. The USPTO, the trademark authority in the
-                                        US, requires registration and approval of US recognized
-                                        trademarks.
-                                    </p>
-                                    <p>
-                                        This form provides an easy way for trademark owners (or their
-                                        agents) to notify DigitalOcean about trademark abuse that
-                                        may be hosted by our customers.
-                                    </p>
+                                <p>
+                                    Trademark abuse is the unauthorized use of a trademark on
+                                    or in connection with goods or services in a way that is
+                                    likely to cause confusion about the source of the goods or
+                                    services.
+                                </p>
+                                <p>
+                                    Trademarks are national or regionally registered symbols,
+                                    words, signs, or names used to identify or distinguish the
+                                    brand, goods, or services of a company or individual. Each
+                                    country or region has their own specific laws and authorities
+                                    around trademark. The USPTO, the trademark authority in the
+                                    US, requires registration and approval of US recognized
+                                    trademarks.
+                                </p>
+                                <p>
+                                    This form provides an easy way for trademark owners (or their
+                                    agents) to notify DigitalOcean about trademark abuse that
+                                    may be hosted by our customers.
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!---End tabs content-->
         </div>
     </div>
+    <!---End tabs-->
 </div>
 
+<!--End paragraph question. -->
 <!---footer -->
 <div class="container-fluid">
     <div class="row footer">
@@ -441,5 +485,7 @@
     </div>
 </div>
 
+<!-- My js-->
+<script src="scripts/js/custom.js" ></script>
 </body>
 </html>

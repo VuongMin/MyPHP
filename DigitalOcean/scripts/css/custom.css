@@ -49,9 +49,7 @@ margin-top: 60px;
 }
 .fast-answer a{text-decoration: underline}
 form{width: 886px; margin: 0 auto}
-.form-control{
-height: 50px;
-}
+
 .footer{
     margin-top: 100px;
     background: #010e28;
@@ -66,4 +64,16 @@ Access to the DOM use properties and Mã giả of element.*/
 ul[class='nav flex-column'] li:first-child a
 {
   font-size: 15px;
+}
+.error
+{
+    border: 1px solid #f1f1f1;
+    border-radius: 5px;
+    height: 48px;
+}
+.error li{
+    list-style: none;
+}
+.Active{
+    color: black;
 }
