@@ -77,3 +77,9 @@ ul[class='nav flex-column'] li:first-child a
 .Active{
     color: black;
 }
+.form-row
+{
+    margin-bottom: 20px;
+}
+
+
