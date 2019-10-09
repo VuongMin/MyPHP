@@ -170,7 +170,7 @@ $frm_error=isset($_SESSION['frm_error'])?$_SESSION['frm_error']:null;
                                 </div>
                                 <div class="form-group col-md-6">
                                     <div class="error">
-                                        <?php echo  ($frm_error!=null&&!empty($frm_error['Email']))?"<li style=\" margin-left:13px;font-size:13px ;color: red;font-weight: bold\">".$frm_error['Email']." </li>":""; ?>
+                                        <?php echo  ($frm_error!=null&&!empty($frm_error['email']))?"<li style=\" margin-left:13px;font-size:13px ;color: red;font-weight: bold\">".$frm_error['email']." </li>":""; ?>
                                         <input style="border: none" type="email" class="form-control" name="email" placeholder="Email">
                                     </div>
 
@@ -212,59 +212,101 @@ $frm_error=isset($_SESSION['frm_error'])?$_SESSION['frm_error']:null;
                 <!---tabs sales -->
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <div class="container">
-                        <form>
+                        <form   method="post" action="#" id="frm_sales">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input style="height: 48px;" type="email" class="form-control " id="inputEmail4" placeholder="First Name">
+                                    <input style="height: 48px;" type="text" class="form-control " name="firstname" placeholder="First Name">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input style="height: 48px;" type="password" class="form-control" id="inputPassword4" placeholder="Last Name">
+                                    <input style="height: 48px;" type="text" class="form-control" name="lastname" placeholder="Last Name">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input style="height: 48px;" type="email" class="form-control" id="inputEmail4" placeholder="Business Email">
+                                    <input style="height: 48px;" type="email" class="form-control" name="email" placeholder="Business Email">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input style="height: 48px;" type="password" class="form-control" id="inputPassword4" placeholder="Business Phone Number">
+                                    <input style="height: 48px;" type="text" class="form-control"  name="phone" placeholder="Business Phone Number">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input style="height: 48px;" type="password" class="form-control" id="inputPassword4" placeholder="Company Name">
+                                    <input style="height: 48px;" type="text" class="form-control"  name="company" placeholder="Company Name">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input style="height: 48px;" type="password" class="form-control" id="inputPassword4" placeholder="What is your primary role?">
+                                    <select style="height: 48px;" name="role" class="form-control">
+                                        <option value="">What is your primary role?</option>
+                                        <option value="Engineering">Engineering</option>
+                                        <option value="Infrastructure">Infrastructure</option>
+                                        <option value="DevOps">DevOps</option>
+                                        <option value="Development">Development</option>
+                                        <option value="Architecture">Architecture</option>
+                                        <option value="Operations">Operations</option>
+                                        <option value="Other">Other</option>
+                                    </select>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input style="height: 48px;" type="password" class="form-control" id="inputPassword4" placeholder="What is your seniority?">
+                                    <select style="height: 48px;" name="seniority"  class="form-control">
+                                        <option value="">What is your seniority?</option>
+                                        <option value="Founder / CEO / President">Founder / CEO / President</option>
+                                        <option value="VP">VP</option>
+                                        <option value="Director">Director</option>
+                                        <option value="Manager">Manager</option>
+                                        <option value="Individual Contributor">Individual Contributor</option>
+                                    </select>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input style="height: 48px;" type="password" class="form-control" id="inputPassword4" placeholder="What is your use case?">
+                                    <select name="usecase"  class="form-control">
+                                        <option value="">What is your use case?</option>
+                                        <option value="Ad Tech">Ad Tech</option>
+                                        <option value="Agency (Web, Dev, Hosting)">Agency (Web, Dev, Hosting)</option>
+                                        <option value="Big Data, Analytics &amp; BI">Big Data, Analytics &amp; BI</option>
+                                        <option value="Dev &amp; Test Environment">Dev &amp; Test Environment</option>
+                                        <option value="Gaming">Gaming</option>
+                                        <option value="Internet of Things">Internet of Things</option>
+                                        <option value="Mobile">Mobile</option>
+                                        <option value="Streaming (Video, Audio, Data)">Streaming (Video, Audio, Data)</option>
+                                        <option value="SaaS / Web Apps">SaaS / Web Apps</option>
+                                        <option value="VPN">VPN</option>
+                                        <option value="Other">Other</option>
+                                    </select>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input style="height: 48px;" type="password" class="form-control" id="inputPassword4" placeholder="What is your estimated monthly spend?">
+                                    <select name="spend"  class="form-control">
+                                        <option value="" class="first">What is your estimated monthly spend?</option>
+                                        <option value="$0 - $499">$0 - $499</option>
+                                        <option value="$500 - $999">$500 - $999</option>
+                                        <option value="$1,000 - $4,999">$1,000 - $4,999</option>
+                                        <option value="$5,000 +">$5,000 +</option>
+                                    </select>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input style="height: 48px;" type="password" class="form-control" id="inputPassword4" placeholder="What is your timeline for deployment/migration?">
+                                    <select name="migration" class="form-control">
+                                        <option value="" class="first">What is your timeline for deployment/migration?</option>
+                                        <option value="ASAP">ASAP</option>
+                                        <option value="Within the next 4 weeks">Within the next 4 weeks</option>
+                                        <option value="Within 2-6 months">Within 2-6 months</option>
+                                        <option value="More than 6 months out">More than 6 months out</option>
+                                    </select>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <p>Which products & services are you considering using in this project?</p>
-                                    <input type="checkbox" name="" value="" > Droplets (VMs)<br/>
-                                    <input type="checkbox" name="" value="" > Managed Kubernetes<br/>
-                                    <input type="checkbox" name="" value="" > Spaces Object Storage<br/>
-                                    <input type="checkbox" name="" value="" > Volumes Block Storage<br/>
-                                    <input type="checkbox" name="" value="" > Managed Databases<br/>
-                                    <input type="checkbox" name="" value="" > Premier Support<br/>
-                                    <input type="checkbox" name="" value="" > Networking Tools (LBs, Firewalls, Floating IPs)<br/>
-                                    <input type="checkbox" name="" value="" > Developer Tools (API, Monitoring, Team Accounts)<br/>
+                                    <input type="checkbox" name="project" value="Droplets (VMs)" > Droplets (VMs)<br/>
+                                    <input type="checkbox" name="project" value="Managed Kubernetes" > Managed Kubernetes<br/>
+                                    <input type="checkbox" name="project" value="Spaces Object Storage" > Spaces Object Storage<br/>
+                                    <input type="checkbox" name="project" value="Volumes Block Storage" > Volumes Block Storage<br/>
+                                    <input type="checkbox" name="project" value="Managed Databases" > Managed Databases<br/>
+                                    <input type="checkbox" name="project" value="Premier Support" > Premier Support<br/>
+                                    <input type="checkbox" name="project" value="Networking Tools (LBs, Firewalls, Floating IPs)" > Networking Tools (LBs, Firewalls, Floating IPs)<br/>
+                                    <input type="checkbox" name="project" value="Developer Tools (API, Monitoring, Team Accounts)" > Developer Tools (API, Monitoring, Team Accounts)<br/>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <textarea style="width: 100%;height: 68px;" type="" name="" placeholder="What is the biggest challenge you are trying to solve with this project?"></textarea>
+                                    <textarea style="width: 100%;height: 68px;" type="text" name="discription" placeholder="What is the biggest challenge you are trying to solve with this project?"></textarea>
                                 </div>
                             </div>
 
-                            <input  style="width: 100%;height: 48px" name="submit" type="submit" class="btn btn-primary float-right" value="Send Message">
+                            <input  id="btn_submit" style="width: 100%;height: 48px" name="submit" type="submit" class="btn btn-primary float-right" value="Send Message">
 
                         </form>
                     </div>
                 </div>
+                <!-- Tabs report-->
                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                     <div class="container">
                         <div class="row">
@@ -508,10 +550,10 @@ if(isset($_SESSION['alert_modal']) &&$_SESSION['alert_modal']==='show')
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title" style="color: #007bff" >Digital Ocean</h4>
+          <h4 class="modal-title text-info" style="text-shadow:5px 5px 10px dodgerblue "  >Digital Ocean</h4>
         </div>
         <div class="modal-body">
-          <p style="font-size: 15px;font-weight: bold;color: #BDBDBD">Information sent successfully. thank you</p>
+          <p  class="text-success">Information sent successfully. thank you!</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -532,6 +574,7 @@ session_destroy();
 ?>
 <!-- My js-->
 <script src="scripts/js/custom.js" ></script>
+<script src="scripts/js/formSales.js"></script>
 
 </body>
 </html>

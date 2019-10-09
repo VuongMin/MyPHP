@@ -1,33 +1,58 @@
 <?php
-require_once 'Validate.php';
-$val= new Validate($_REQUEST);
-customRulesEveryForm($val,end($_REQUEST));
 session_start();
-$_SESSION['frm_error']=$val->getError();
-//save info to data json
-$path_support='../infoJsonData/input';
-$checkSucc= SaveJsonFile($path_support,count($val->getError()));
-$checkSucc ?  $_SESSION['alert_modal']='show':$_SESSION['modal']=null;
+require_once 'Validate.php';
+$path_support='../infoJsonData/support';
+$path_sale='../infoJsonData/sales';
+$value=end($_REQUEST);
+// Check case difference REQUEST : {key: val}ajax||$_POST with  'private $Suorce' (valitdate)
+$val= is_string($value)? new Validate($_REQUEST):new Validate(end($_REQUEST));
+customRulesEveryForm($val,$value, is_string($value)?$path_support:$path_sale);
+
 
 //Method process
-function customRulesEveryForm($object,$val_Submit)
+function customRulesEveryForm($object,$val_Submit,$path)
 {
-     if(strtolower($val_Submit)=='sign in')
+     if(is_string($val_Submit)&&strtolower($val_Submit)=='sign in')
      {
          $object->addRules(['name'=>['type'=>'string','max'=>100,'min'=>0]])
              ->addRules(['email'=>['type'=>'email']])
              ->addRules(['subject'=>['type'=>'string','max'=>100,'min'=>0]])
              ->addRules(['descripton'=>['type'=>'string','max'=>500,'min'=>0]]);
          $object->Run();
+         if(empty($_REQUEST['reason']))
+         {
+             $object->setError('reason','This value is required.');
+         }
+         //save info to data json
+         $checkSucc= SaveJsonFile($path,count($object->getError()));
+         $checkSucc ?  $_SESSION['alert_modal']='show':$_SESSION['modal']=null;
+         //error
+         $_SESSION['frm_error']=$object->getError();
+         header('location:../index.php');
      }else
      {
+         $object->addRules(['firstname'=>['type'=>'string','max'=>100,'min'=>0]])
+             ->addRules(['lastname'=>['type'=>'string','max'=>100,'min'=>0]])
+             ->addRules(['email'=>['type'=>'email']])
+             ->addRules(['phone'=>['type'=>'int']])
+             ->addRules(['company'=>['type'=>'string','max'=>100,'min'=>0]])
+             ->addRules(['role'=>['type'=>'string','max'=>100,'min'=>0]])
+             ->addRules(['seniority'=>['type'=>'string','max'=>100,'min'=>0]])
+             ->addRules(['usecase'=>['type'=>'string','max'=>100,'min'=>0]])
+             ->addRules(['spend'=>['type'=>'string','max'=>100,'min'=>0]])
+             ->addRules(['migration'=>['type'=>'string','max'=>100,'min'=>0]])
+             ->addRules(['discription'=>['type'=>'string','max'=>100,'min'=>0]]);
+        $object->Run();
+         //save info to data json
+         $checkSucc= SaveJsonFile($path,count($object->getError()));
+         if($checkSucc==false)
+         {
+             echo json_encode($object->getError());
+         }else{
 
+             echo true;
+         }
      }
-    if(empty($_REQUEST['reason']))
-    {
-        $object->setError('reason','This value is required.');
-    }
-
 }
 function SaveJsonFile($path,$numError)
 {
@@ -58,7 +83,7 @@ function SaveJsonFile($path,$numError)
     }
     return false;
 }
-header('location:../index.php');
+
 
 
 

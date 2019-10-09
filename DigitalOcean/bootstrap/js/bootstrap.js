@@ -408,7 +408,7 @@
   var Selector$1 = {
     DATA_TOGGLE_CARROT: '[data-toggle^="button"]',
     DATA_TOGGLE: '[data-toggle="buttons"]',
-    INPUT: 'input:not([type="hidden"])',
+    INPUT: 'support:not([type="hidden"])',
     ACTIVE: '.active',
     BUTTON: '.btn'
   };
@@ -1923,9 +1923,9 @@
     ;
 
     Dropdown._dataApiKeydownHandler = function _dataApiKeydownHandler(event) {
-      // If not input/textarea:
+      // If not support/textarea:
       //  - And not a key in REGEXP_KEYDOWN => not a dropdown command
-      // If input/textarea:
+      // If support/textarea:
       //  - If space key => not a dropdown command
       //  - If key is other than escape
       //    - If key is not up or down => not a dropdown command

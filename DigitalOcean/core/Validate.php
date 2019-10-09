@@ -98,43 +98,44 @@ class Validate
         }
         return true;
     }
-    public  function  checkURL($name)
+    public  function  checkURL($name,$nameVal)
     {
         if(empty($name))
         {
-            $this->setError('URL','This value is required.');
+            $this->setError($nameVal,'This value is required.');
           return false;
         } elseif (!filter_var($name, FILTER_VALIDATE_URL)) {
-            $this->setError('URL','URL is invalid!');
+            $this->setError($nameVal,'URL is invalid!');
             return false;
         }
         return true;
     }
-    public  function  checkEmail($name)
+    public  function  checkEmail($name,$nameVal)
     {
         if(empty($name))
         {
-            $this->setError('Email','This value is required.');
+            $this->setError($nameVal,'This value is required.');
             return false;
         } elseif (!filter_var($name, FILTER_VALIDATE_EMAIL)) {
-            $this->setError('Email','Email is invalid!');
+            $this->setError($nameVal,'Email is invalid!');
             return false;
         }
         return true;
     }
-    public  function  checkInt($name)
+    public  function  checkInt($name,$nameVal)
     {
         if(empty($name))
         {
-            $this->setError('integer','This value is required.');
+            $this->setError($nameVal,'This value is required.');
             return false;
         } elseif(!is_numeric($name))
           {
-              $this->setError('integer','is not a number!');
+              $this->setError($nameVal,'is not a number!');
               return false;
           }
           return true;
     }
+
     public  function   Run()
     {
        foreach ($this->getRules() as $key =>$val)
@@ -148,15 +149,15 @@ class Validate
               }
               case 'int':
               {
-                $this->checkInt($this->getSuorce()[$key]);    break;
+                $this->checkInt($this->getSuorce()[$key],$key);    break;
               }
               case 'url':
               {
-                $this->checkURL($this->getSuorce()[$key]);    break;
+                $this->checkURL($this->getSuorce()[$key],$key);    break;
               }
               case 'email':
                   {
-                       $this->checkEmail($this->getSuorce()[$key]);    break;
+                       $this->checkEmail($this->getSuorce()[$key],$key);    break;
                   }
           }
        }
