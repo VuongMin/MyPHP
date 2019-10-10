@@ -287,7 +287,7 @@ $frm_error=isset($_SESSION['frm_error'])?$_SESSION['frm_error']:null;
                                 </div>
                                 <div class="form-group col-md-12">
                                     <p>Which products & services are you considering using in this project?</p>
-                                    <input type="checkbox" name="project" value="Droplets (VMs)" > Droplets (VMs)<br/>
+                                    <input type="checkbox" name="project" value="Droplets (VMs)" checked> Droplets (VMs)<br/>
                                     <input type="checkbox" name="project" value="Managed Kubernetes" > Managed Kubernetes<br/>
                                     <input type="checkbox" name="project" value="Spaces Object Storage" > Spaces Object Storage<br/>
                                     <input type="checkbox" name="project" value="Volumes Block Storage" > Volumes Block Storage<br/>
@@ -312,10 +312,8 @@ $frm_error=isset($_SESSION['frm_error'])?$_SESSION['frm_error']:null;
                         <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                 <div class="form-group">
-                                    <label for="" class="col-sm-2 control-label"></label>
-
-                                    <select class="form-control" id="">
-                                        <option value="0">Select Abuse Type</option>
+                                    <select class="form-control" id="tabsSelect">
+                                        <option value="0" selected>Select Abuse Type</option>
                                         <option value="1">DMCA Takedown</option>
                                         <option value="2">Trademark Infringement</option>
                                         <option value="3">Spam</option>
@@ -328,33 +326,773 @@ $frm_error=isset($_SESSION['frm_error'])?$_SESSION['frm_error']:null;
                                         <option value="10">Other</option>
 
                                     </select>
-
                                 </div>
-                                <p style="text-align: center;color: #808693;margin-top: 40px;">Please select an abuse type above</p>
+                                <!--- tooggle form--->
+                                <div class="toggle_effect">
+                                    <p id="text" style="text-align: center;color: #808693;margin-top: 40px;">Please select an abuse type above</p>
+                                    <div class="Abuse-content" data-abuse="start"></div>
+
+                                    <div id="_dmca" class="Abuse-content" data-abuse="dmca">
+                                        <form name="DmcaAbuse" accept-charset="UTF-8" data-parsley-validate="" novalidate="">
+                                            <input type="hidden" name="utf8" value="✓">
+                                            <input type="hidden" name="cookie_id" value="null">
+                                            <input type="hidden" name="abuse_report[abuse_type]" value="dmca">
+
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                    <input class="form-control " id="DmcaAbuse-copyrightHolderName" type="text" name="abuse_report[copyright_holder_name]" placeholder="Copyright Owner's Full Name" required="">
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                    <input class="form-control" id="DmcaAbuse-reporterName" type="text" name="abuse_report[reporter_name]" placeholder="Your Full Name" required="">
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                    <input class="form-control" id="DmcaAbuse-address" type="text" name="abuse_report[address]" placeholder="Address" required="">
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                    <input class="form-control" id="DmcaAbuse-phone" type="tel" name="abuse_report[phone]" placeholder="Phone Number (Digits Only)" required="">
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                    <input class="form-control"  id="DmcaAbuse-email" type="email" name="abuse_report[email]" placeholder="Email Address" data-mailcheck="#dmca-abuse-mailcheck" required="">
+
+                                                </div>
+                                                <div id="dmca-abuse-mailcheck" class="www-u-hidden text-muted www-u-TextColor--muted bui-u-mt--small"></div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                    <textarea class="form-control" id="DmcaAbuse-infringingDescription" name="abuse_report[infringing_description]" placeholder="URL(s) and/or a description of the infringing content" type="url" required=""></textarea>
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                    <input class="form-control" id="DmcaAbuse-acknowledgementCheck" type="checkbox" name="abuse_report[acknowledgment_check]" value="acknowledged" required="" data-parsley-multiple="abuse_reportacknowledgment_check">
+                                                    <label for="DmcaAbuse-acknowledgementCheck">
+                                                        By checking this box, you attest, under penalty of
+                                                        perjury, that (1) you have a good faith belief that use
+                                                        of the material in this report is not authorized by the
+                                                        copyright owner, its agent, or the law; (2) you are the
+                                                        copyright owner or authorized to act on behalf of the
+                                                        copyright owner; and (3) you understand, under 17
+                                                        U.S.C. § 512(f), that you may be liable for any
+                                                        damages, including costs and attorneys' fees, if you
+                                                        knowingly materially misrepresent that the material
+                                                        you are reporting is infringing.
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                    <input class="form-control" id="DmcaAbuse-digitalSignature" type="text" name="abuse_report[digital_signature]" placeholder="Digital Signature" required="">
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <p class="col-md-6">
+                                                    By entering your name, you affirm all information is true and accurate.
+                                                </p>
+                                                <p class="col-md-6">
+                                                    All information submitted to us may be relayed to the customer during
+                                                    our remediation process.
+                                                </p>
+                                                <input class="form-control col-md-6 btn btn-primary"  type="submit">
+                                            </div>
+                                        </form>
+                                    </div>
+
+
+                                    <div id="_trademark" class="Abuse-content " data-abuse="trademark">
+                                        <form name="TrademarkAbuse" accept-charset="UTF-8" data-parsley-validate="" novalidate=""><input class="form-control" type="hidden" name="utf8" value="✓">
+                                            <input class="form-control" type="hidden" name="cookie_id" value="null">
+                                            <input class="form-control" type="hidden" name="abuse_report[abuse_type]" value="trademark">
+
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                    <input class="form-control" id="TrademarkAbuse-reporterName" type="text" name="abuse_report[reporter_name]" placeholder="Your Full Name" required="">
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                    <input class="form-control" id="TrademarkAbuse-address" type="text" name="abuse_report[address]" placeholder="Address" required="">
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                    <input class="form-control" id="TrademarkAbuse-phone" type="tel" name="abuse_report[phone]" placeholder="Phone Number (Digits Only)" required="">
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                    <input class="form-control" id="TrademarkAbuse-email" type="email" name="abuse_report[email]" placeholder="Email Address" data-mailcheck="#trademark-abuse-mailcheck" required="">
+
+                                                </div>
+                                                <div id="trademark-abuse-mailcheck" class="www-u-hidden text-muted www-u-TextColor--muted bui-u-mt--small">
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                    <input class="form-control" id="TrademarkAbuse-trademarkedWork" type="text" name="abuse_report[trademarked_work]" placeholder="Trademarked word/symbol" required="">
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                    <input  class="form-control"id="TrademarkAbuse-registrationOffice" type="text" name="abuse_report[registration_office]" placeholder="Registration office, Country" required="">
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                    <input class="form-control" id="TrademarkAbuse-registrationNumber" type="text" name="abuse_report[registration_number]" placeholder="Registration number" required="">
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                    <textarea class="form-control" id="TrademarkAbuse-infringingDescription" name="abuse_report[infringing_description]" placeholder="URL(s) and/or a description of the infringing content" type="url" required=""></textarea>
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                    <textarea  class="form-control" id="TrademarkAbuse-abuseComments" name="abuse_report[abuse_comments]" placeholder="Comments" required=""></textarea>
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                    <input   class="form-control" id="TrademarkAbuse-digitalSignature" type="text" name="abuse_report[digital_signature]" placeholder="Digital Signature" required="">
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <p class="col-md-6">
+                                                    By entering your name, you affirm all information is true and accurate.
+                                                </p>
+                                                <p class="col-md-6">
+                                                    All information submitted to us may be relayed to the customer during
+                                                    our remediation process.
+                                                </p>
+                                                <input  class="form-control col-sm-6 btn btn-primary" type="submit" >
+                                            </div>
+                                        </form>
+                                    </div>
+
+
+                                    <div id="_violent" class="Abuse-content" data-abuse="violent">
+                                        <form name="ViolentAbuse" accept-charset="UTF-8" data-parsley-validate="" novalidate="">
+                                            <input type="hidden" name="utf8" value="✓">
+                                            <input type="hidden" name="cookie_id" value="null">
+                                            <input type="hidden" name="abuse_report[abuse_type]" value="violent">
+                                            <div class="text-muted">
+                                                <div class="form-group col-sm-6">
+                                                    <input class="form-control" id="ViolentAbuse-reporterName" type="text" name="abuse_report[reporter_name]" placeholder="Your Full Name" required="">
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <div class="form-group col-sm-6">
+                                                    <input class="form-control" id="ViolentAbuse-email" type="email" name="abuse_report[email]" placeholder="Email Address" data-mailcheck="#Violent-abuse-mailcheck" required="">
+
+                                                </div>
+                                                <div id="Violent-abuse-mailcheck" class="www-u-hidden text-muted www-u-TextColor--muted bui-u-mt--small"></div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <div class="form-group col-sm-6">
+                                                    <textarea class="form-control" id="ViolentAbuse-evidence" name="abuse_report[evidence_urls]" placeholder="Evidence URL" type="url" required=""></textarea>
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <div class="form-group col-sm-6">
+                                                    <textarea class="form-control" id="ViolentAbuse-additionalinfo" name="abuse_report[additional_information]" placeholder="Additional information" required=""></textarea>
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <p class="col-md-6">
+                                                    By entering your name, you affirm all information is true and accurate.
+                                                </p>
+                                                <p class="col-md-6">
+                                                    All information submitted to us may be relayed to the customer during
+                                                    our remediation process.
+                                                </p>
+                                                <input  class="form-control col-sm-6 btn btn-primary" type="submit">
+                                            </div>
+                                        </form>
+                                    </div>
+
+
+                                    <div id="_spam" class="Abuse-content" data-abuse="spam">
+                                        <form name="SpamAbuse" accept-charset="UTF-8" data-parsley-validate="" novalidate="">
+                                            <input type="hidden" name="utf8" value="✓">
+                                            <input type="hidden" name="cookie_id" value="null">
+                                            <input type="hidden" name="abuse_report[abuse_type]" value="spam">
+                                            <div class="text-muted">
+                                                <div class="form-group col-sm-6">
+                                                    <input class="form-control" id="SpamAbuse-reporterName" type="text" name="abuse_report[reporter_name]" placeholder="Your Full Name" required="">
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <div class="form-group col-sm-6">
+                                                    <input class="form-control" id="SpamAbuse-email" type="email" name="abuse_report[email]" placeholder="Email Address" data-mailcheck="#spam-abuse-mailcheck" required="">
+
+                                                </div>
+                                                <div id="spam-abuse-mailcheck" class="www-u-hidden text-muted www-u-TextColor--muted bui-u-mt--small"></div>
+                                            </div>
+
+                                            <div class="text-muted">
+                                                <div class="form-group col-sm-6">
+                                                    <textarea class="form-control" id="SpamAbuse-headers" name="abuse_report[headers]" placeholder="Headers from email received" required=""></textarea>
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <div class="form-group col-sm-6">
+                                                    <textarea class="form-control" id="SpamAbuse-originalDescription" name="abuse_report[message_body]" placeholder="Message Body" required=""></textarea>
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <p class="col-md-6">
+                                                    By entering your name, you affirm all information is true and accurate.
+                                                </p>
+                                                <p class="col-md-6">
+                                                    All information submitted to us may be relayed to the customer during
+                                                    our remediation process.
+                                                </p>
+                                                <input class="form-control col-sm-6 btn btn-primary" type="submit">
+                                            </div>
+                                        </form>
+                                    </div>
+
+
+                                    <div id="_botnet" class="Abuse-content" data-abuse="botnet">
+                                        <form name="BotnetAbuse" accept-charset="UTF-8" data-parsley-validate="" novalidate="">
+                                            <input type="hidden" name="utf8" value="✓">
+                                            <input type="hidden" name="cookie_id" value="null">
+                                            <input type="hidden" name="abuse_report[abuse_type]" value="botnet">
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                   <input class="form-control"id="BotnetAbuse-reporterName" type="text" name="abuse_report[reporter_name]" placeholder="Your Full Name" required="">
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                   <input class="form-control"id="BotnetAbuse-email" type="email" name="abuse_report[email]" placeholder="Email Address" data-mailcheck="#Botnet-abuse-mailcheck" required="">
+
+                                                </div>
+                                                <div id="Botnet-abuse-mailcheck" class="www-u-hidden text-muted www-u-TextColor--muted bui-u-mt--small"></div>
+                                            </div>
+                                            <div class="wtext-muted">
+                                                <div class="form-group col-md-6">
+                                                    <textarea class="form-control"  id="BotnetAbuse-evidence" name="abuse_report[evidence_urls]" placeholder="Evidence URLs" type="url" required=""></textarea>
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <p class="col-md-6">
+                                                    By entering your name, you affirm all information is true and accurate.
+                                                </p>
+                                                <p class="col-md-6">
+                                                    All information submitted to us may be relayed to the customer during
+                                                    our remediation process.
+                                                </p>
+                                               <input class="form-control col-sm-6 btn btn-primary" type="submit">
+                                            </div>
+                                        </form>
+                                    </div>
+
+
+                                    <div id="_other" class="Abuse-content" data-abuse="other">
+                                        <form name="OtherAbuse" accept-charset="UTF-8" data-parsley-validate="" novalidate="">
+                                           <input class="form-control" type="hidden" name="utf8" value="✓">
+                                           <input class="form-control" type="hidden" name="cookie_id" value="null">
+                                           <input class="form-control" type="hidden" name="abuse_report[abuse_type]" value="other">
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                   <input class="form-control" id="OtherAbuse-reporterName" type="text" name="abuse_report[reporter_name]" placeholder="Your Full Name" required="">
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                   <input class="form-control" id="OtherAbuse-email" type="email" name="abuse_report[email]" placeholder="Email Address" data-mailcheck="#Other-abuse-mailcheck" required="">
+
+                                                </div>
+                                                <div id="Other-abuse-mailcheck" class="www-u-hidden text-muted www-u-TextColor--muted bui-u-mt--small"></div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                    <textarea class="form-control"  id="OtherAbuse-description" name="abuse_report[original_description]" placeholder="Description of issue" required=""></textarea>
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                    <textarea class="form-control"  id="OtherAbuse-evidence" name="abuse_report[evidence]" placeholder="Evidence URL" type="url" required=""></textarea>
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                    <textarea class="form-control"  id="OtherAbuse-comments" name="abuse_report[abuse_comments]" placeholder="Comments" required=""></textarea>
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <p class="col-md-6">
+                                                    By entering your name, you affirm all information is true and accurate.
+                                                </p>
+                                                <p class="col-md-6">
+                                                    All information submitted to us may be relayed to the customer during
+                                                    our remediation process.
+                                                </p>
+                                               <input class="form-control col-sm-6 btn btn-primary"  type="submit">
+                                            </div>
+                                        </form>
+                                    </div>
+
+
+                                    <div id="_childabuse" class="Abuse-content" data-abuse="childabuse">
+                                        <form name="ChildabuseAbuse" accept-charset="UTF-8" data-parsley-validate="" novalidate="">
+                                           <input class="form-control" type="hidden" name="utf8" value="✓">
+                                           <input class="form-control" type="hidden" name="cookie_id" value="null">
+                                           <input class="form-control" type="hidden" name="abuse_report[abuse_type]" value="childabuse">
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                   <input class="form-control" id="ChildabuseAbuse-reporterName" type="text" name="abuse_report[reporter_name]" placeholder="Your Full Name" required="">
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                   <input class="form-control" id="ChildabuseAbuse-email" type="email" name="abuse_report[email]" placeholder="Email Address" data-mailcheck="#Childabuse-abuse-mailcheck" required="">
+
+                                                </div>
+                                                <div id="Childabuse-abuse-mailcheck" class="www-u-hidden text-muted www-u-TextColor--muted bui-u-mt--small"></div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                    <textarea class="form-control"  id="ChildabuseAbuse-evidence" name="abuse_report[evidence_urls]" placeholder="Evidence URLs" type="url" required=""></textarea>
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                   <input class="form-control" id="ChildabuseAbuse-digitalSignature" type="text" name="abuse_report[digital_signature]" placeholder="Digital Signature" required="">
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <p class="col-md-6">
+                                                    By entering your name, you affirm all information is true and accurate.
+                                                </p>
+                                                <p class="col-md-6">
+                                                    All information submitted to us may be relayed to the customer during
+                                                    our remediation process.
+                                                </p>
+                                               <input class="form-control col-sm-6 btn btn-primary"  type="submit">
+                                            </div>
+                                        </form>
+                                    </div>
+
+
+                                    <div id="_phishing" class="Abuse-content" data-abuse="phishing">
+                                        <form name="PhishingAbuse" accept-charset="UTF-8" data-parsley-validate="" novalidate="">
+                                           <input class="form-control" type="hidden" name="utf8" value="✓">
+                                           <input class="form-control" type="hidden" name="cookie_id" value="null">
+                                           <input class="form-control" type="hidden" name="abuse_report[abuse_type]" value="phishing">
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                   <input class="form-control" id="PhishingAbuse-reporterName" type="text" name="abuse_report[reporter_name]" placeholder="Your Full Name" required="">
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                   <input class="form-control" id="PhishingAbuse-email" type="email" name="abuse_report[email]" placeholder="Email Address" data-mailcheck="#Phishing-abuse-mailcheck" required="">
+
+                                                </div>
+                                                <div id="Phishing-abuse-mailcheck" class="www-u-hidden text-muted www-u-TextColor--muted bui-u-mt--small"></div>
+                                            </div>
+
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                   <input class="form-control" id="PhishingAbuse-target" type="text" name="abuse_report[phishing_target]" placeholder="Target of Phishing Campaign" required="">
+
+                                                </div>
+                                            </div>
+
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                    <textarea class="form-control"  id="PhishingAbuse-evidenceURLS" name="abuse_report[evidence_urls]" placeholder="Evidence URLs" type="url" required=""></textarea>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                    <textarea class="form-control"  id="PhishingAbuse-additional" name="abuse_report[additional_information]" placeholder="Additional Evidence or Logs" required=""></textarea>
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <p class="col-md-6">
+                                                    By entering your name, you affirm all information is true and accurate.
+                                                </p>
+                                                <p class="col-md-6">
+                                                    All information submitted to us may be relayed to the customer during
+                                                    our remediation process.
+                                                </p>
+                                               <input   class="form-control col-sm-6 btn btn-primary" type="submit">
+                                            </div>
+                                        </form>
+                                    </div>
+
+
+                                    <div id="_malware" class="Abuse-content" data-abuse="malware">
+                                        <form name="MalwareAbuse" accept-charset="UTF-8" data-parsley-validate="" novalidate="">
+                                           <input class="form-control" type="hidden" name="utf8" value="✓">
+                                           <input class="form-control" type="hidden" name="cookie_id" value="null">
+                                           <input class="form-control" type="hidden" name="abuse_report[abuse_type]" value="malware">
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                   <input class="form-control" id="MalwareAbuse-reporterName" type="text" name="abuse_report[reporter_name]" placeholder="Your Full Name" required="">
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                   <input class="form-control" id="MalwareAbuse-email" type="email" name="abuse_report[email]" placeholder="Email Address" data-mailcheck="#Malware-abuse-mailcheck" required="">
+
+                                                </div>
+                                                <div id="Malware-abuse-mailcheck" class="www-u-hidden text-muted www-u-TextColor--muted bui-u-mt--small"></div>
+                                            </div>
+
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                    <textarea class="form-control"  id="MalwareAbuse-evidenceURLS" name="abuse_report[evidence_urls]" placeholder="Evidence URLs" type="url" required=""></textarea>
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                    <textarea class="form-control"  id="MalwareAbuse-additional" name="abuse_report[additional_information]" placeholder="Additional Evidence or Logs" required=""></textarea>
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <p class="col-md-6">
+                                                    By entering your name, you affirm all information is true and accurate.
+                                                </p>
+                                                <p class="col-md-6">
+                                                    All information submitted to us may be relayed to the customer during
+                                                    our remediation process.
+                                                </p>
+                                               <input class="form-control col-sm-6 btn btn-primary"  type="submit">
+                                            </div>
+                                        </form>
+                                    </div>
+
+
+                                    <div id="_bruteforce" class="Abuse-content" data-abuse="bruteforce">
+                                        <form name="BruteforceAbuse" accept-charset="UTF-8" data-parsley-validate="" novalidate="">
+                                           <input class="form-control" type="hidden" name="utf8" value="✓">
+                                           <input class="form-control" type="hidden" name="cookie_id" value="null">
+                                           <input class="form-control" type="hidden" name="abuse_report[abuse_type]" value="bruteforce">
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                   <input class="form-control" id="BruteforceAbuse-reporterName" type="text" name="abuse_report[reporter_name]" placeholder="Your Full Name" required="">
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                   <input class="form-control" id="BruteforceAbuse-email" type="email" name="abuse_report[email]" placeholder="Email Address" data-mailcheck="#Bruteforce-abuse-mailcheck" required="">
+
+                                                </div>
+                                                <div id="Bruteforce-abuse-mailcheck" class="www-u-hidden text-muted www-u-TextColor--muted bui-u-mt--small"></div>
+                                            </div>
+
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                    <textarea class="form-control"  id="BruteforceAbuse-evidence" name="abuse_report[evidence]" placeholder="Evidence or logs of the activity showing source IP" required=""></textarea>
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <div class="form-group col-md-6">
+                                                    <textarea class="form-control"  id="BruteforceAbuse-timezone" name="abuse_report[timezone]" placeholder="Your server's time zone" required=""></textarea>
+
+                                                </div>
+                                            </div>
+                                            <div class="text-muted">
+                                                <p class="col-md-6">
+                                                    By entering your name, you affirm all information is true and accurate.
+                                                </p>
+                                                <p class="col-md-6">
+                                                    All information submitted to us may be relayed to the customer during
+                                                    our remediation process.
+                                                </p>
+                                               <input class="form-control col-sm-6 btn btn-primary" type="submit">
+                                            </div>
+                                        </form>
+
+                                    </div>
+
 
                             </div>
-                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                <p>
-                                    Trademark abuse is the unauthorized use of a trademark on
-                                    or in connection with goods or services in a way that is
-                                    likely to cause confusion about the source of the goods or
-                                    services.
-                                </p>
-                                <p>
-                                    Trademarks are national or regionally registered symbols,
-                                    words, signs, or names used to identify or distinguish the
-                                    brand, goods, or services of a company or individual. Each
-                                    country or region has their own specific laws and authorities
-                                    around trademark. The USPTO, the trademark authority in the
-                                    US, requires registration and approval of US recognized
-                                    trademarks.
-                                </p>
-                                <p>
-                                    This form provides an easy way for trademark owners (or their
-                                    agents) to notify DigitalOcean about trademark abuse that
-                                    may be hosted by our customers.
-                                </p>
                             </div>
+                                <!---End toggle form-->
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                 <div class="toggleContent">
+                                     <div id="__start" class="Abuse-content" data-abuse="start">
+                                         <h4 >Report Abuse</h4>
+                                         <div class="text-muted">
+                                             <p class="">
+                                                 DigitalOcean is a platform that's committed to a better
+                                                 Internet. If you know about, or are a victim of, abuse on
+                                                 a site hosted by DigitalOcean, you can use this form to
+                                                 report the problem to our Trust &amp; Safety team; they are
+                                                 here to help.
+                                             </p>
+                                             <p>
+                                                 Before submitting your report, please take a moment
+                                                 to review the section titled "Rules of Conduct" in our
+                                                 <a href="https://www.digitalocean.com/legal/terms-of-service-agreement/">Terms of Service Agreement</a>.
+                                             </p>
+                                         </div>
+                                     </div>
+                                     <div id="__dmca" class="Abuse-content" data-abuse="dmca">
+                                         <h4>What is the DMCA?</h4>
+                                         <div class="text-muted">
+                                             <p>
+                                                 The Digital Millennium Copyright Act – often called the
+                                                 DMCA—is a federal law that helps copyright holders secure
+                                                 the quick removal of their content from websites that don't
+                                                 have the right to use it.
+                                             </p>
+                                             <p>
+                                                 The DMCA provides web hosts, search engines, and other
+                                                 Internet services "safe harbor" from copyright infringement
+                                                 claims. In return, the law instructs those service providers
+                                                 to act promptly to take down infringing material when
+                                                 properly notified by a copyright owner.
+                                             </p>
+                                             <p>
+                                                 This form provides an easy way for copyright owners
+                                                 (and their agents) to notify DigitalOcean about infringing
+                                                 material that may be hosted by our customers.
+                                             </p>
+                                         </div>
+                                     </div>
+                                     <div id="__trademark" class="Abuse-content is-active" data-abuse="trademark">
+                                         <h4>What is trademark abuse?</h4>
+                                         <div class="text-muted">
+                                             <p>
+                                                 Trademark abuse is the unauthorized use of a trademark on
+                                                 or in connection with goods or services in a way that is
+                                                 likely to cause confusion about the source of the goods or
+                                                 services.
+                                             </p>
+                                             <p>
+                                                 Trademarks are national or regionally registered symbols,
+                                                 words, signs, or names used to identify or distinguish the
+                                                 brand, goods, or services of a company or individual. Each
+                                                 country or region has their own specific laws and authorities
+                                                 around trademark. The USPTO, the trademark authority in the
+                                                 US, requires registration and approval of US recognized
+                                                 trademarks.
+                                             </p>
+                                             <p>
+                                                 This form provides an easy way for trademark owners (or their
+                                                 agents) to notify DigitalOcean about trademark abuse that
+                                                 may be hosted by our customers.
+                                             </p>
+                                         </div>
+                                     </div>
+                                     <div id="__spam" class="Abuse-content" data-abuse="spam">
+                                         <h4>What is Spam?</h4>
+                                         <div class="text-muted">
+                                             <p>
+                                                 Spam is Unsolicited Bulk Email distributed to recipients who have
+                                                 not provided direct consent.
+                                             </p>
+                                             <p>
+                                                 This form provides an easy way for SPAM recipients to notify
+                                                 DigitalOcean about these abuses that may be propagated by
+                                                 DigitalOcean users.
+                                             </p>
+                                             <p>
+                                                 In submitting a complaint, please include as much information as
+                                                 is possible in the Spam abuse form including full unedited
+                                                 message headers and any URLs from the body of the message. The
+                                                 more information provided about the issue, the quicker our Trust
+                                                 &amp; Safety specialists can assist in resolving the complaint.
+                                             </p>
+                                         </div>
+                                     </div>
+                                     <div id="__phishing" class="Abuse-content" data-abuse="phishing">
+                                         <h4>What is Phishing?</h4>
+                                         <div class="text-muted">
+                                             <p>
+                                                 Phishing is the fraudulent practice of sending emails purporting to be from reputable companies in order to induce individuals to reveal personal information, such as passwords and credit card numbers.
+                                             </p>
+                                             <p>
+                                                 This form provides an easy way for victims of phishing to notify DigitalOcean about these abuses that
+                                                 may be propagated by our customers.
+                                             </p>
+                                             <p>
+                                                 In submitting a complaint, please include as much information as
+                                                 is possible in the phishing abuse form. The more information
+                                                 provided about the issue, the quicker our Trust &amp; Safety
+                                                 specialists can assist in resolving the complaint.
+                                             </p>
+                                         </div>
+                                     </div>
+                                     <div id="__violent" class="Abuse-content" data-abuse="violent">
+                                         <h4>What are Violent Threats and Harassment?</h4>
+                                         <div class="text-muted">
+                                             <p>
+                                                 Violent threats and harassment are any sort of content pertaining
+                                                 to intent to harm a person(s). These can be threats of physical
+                                                 altercation or content to cause emotional distress.
+                                             </p>
+                                             <p>
+                                                 <strong>
+                                                     If you believe that you are at imminent risk, contact your
+                                                     local law enforcement immediately.
+                                                 </strong>
+                                             </p>
+                                             <p>
+                                                 This form provides an easy way for victims of violent threats or
+                                                 harassment to notify DigitalOcean about these abuses that may be
+                                                 propagated by our customers.
+                                             </p>
+                                             <p>
+                                                 In submitting a complaint, please include as much information as
+                                                 is possible in the violent threats and harassment abuse form.
+                                                 The more information provided about the issue, the quicker our
+                                                 Trust &amp; Safety specialists can assist in resolving the
+                                                 complaint.
+                                             </p>
+                                         </div>
+                                     </div>
+                                     <div id="__malware" class="Abuse-content" data-abuse="malware">
+                                         <h4>What is Malware?</h4>
+                                         <div class="text-muted">
+                                             <p>
+                                                 Malware is software that is intended to damage or disable computers and computer systems.
+                                             </p>
+                                             <p>
+                                                 This form provides an easy way for victims of malware to notify DigitalOcean about these abuses that
+                                                 may be propagated by our customers.
+                                             </p>
+                                             <p>
+                                                 In submitting a complaint, please include as much information as
+                                                 is possible in the malware abuse form. The more information
+                                                 provided about the issue, the quicker our Trust &amp; Safety
+                                                 specialists can assist in resolving the complaint.
+                                             </p>
+                                         </div>
+                                     </div>
+                                     <div id="__botnet" class="Abuse-content" data-abuse="botnet">
+                                         <h4>What is a Botnet?</h4>
+                                         <div class="text-muted">
+                                             <p>
+                                                 A botnet is a network of private computers infected with malicious software and controlled as a group without the owners' knowledge.
+                                             </p>
+                                             <p>
+                                                 This form provides an easy way for victims of botnet activity to notify DigitalOcean about these abuses that
+                                                 may be propagated by our customers.
+                                             </p>
+                                             <p>
+                                                 In submitting a complaint, please include as much information as
+                                                 is possible in the botnet abuse form. The more information
+                                                 provided about the issue, the quicker our Trust &amp; Safety
+                                                 specialists can assist in resolving the complaint.
+                                             </p>
+                                         </div>
+                                     </div>
+                                     <div id="__bruteforce" class="Abuse-content" data-abuse="bruteforce">
+                                         <h4>What are Bruteforce/PortScan attacks?</h4>
+                                         <div class="text-muted">
+                                             <p>
+                                                 Bruteforce/PortScan attacks are when malicious applications makes several attempts to access, crack, or locate vulnerabilities on machines they have no right accessing. This is a technique commonly employed by malicious actors in order to find an attack vector to utilize against a server/website.
+                                             </p>
+                                             <p>
+                                                 This form provides an easy way for victims of bruteforce or portscanning activity to notify DigitalOcean about these abuses that
+                                                 may be propagated by our customers.
+                                             </p>
+                                             <p>
+                                                 In submitting a complaint, please include as much information as
+                                                 is possible in the bruteforce/portscan abuse form. The more
+                                                 information provided about the issue, the quicker our Trust &amp;
+                                                 Safety specialists can assist in resolving the complaint.
+                                             </p>
+                                         </div>
+                                     </div>
+                                     <div id="__childabuse" class="Abuse-content" data-abuse="childabuse">
+                                         <h4>What is Child Abuse?</h4>
+                                         <div class="text-muted">
+                                             <p>
+                                                 Child Abuse is physical maltreatment or sexual molestation of a
+                                                 child.
+                                             </p>
+                                             <p>
+                                                 This form provides an easy way for persons exposed to Child Abuse
+                                                 content to notify DigitalOcean about these abuses that may be
+                                                 present on our network.
+                                             </p>
+                                             <p>
+                                                 In submitting a complaint, please include as much information as
+                                                 you're aware of regarding the site and any people connected to
+                                                 the site that you are aware of. Further, we would also
+                                                 recommend that you fill out a report with the
+                                                 <a href="https://report.cybertip.org/">National Center for Missing and Exploited Children</a>
+                                                 at
+                                                 <a href="https://report.cybertip.org/">https://report.cybertip.org/</a>
+                                                 as they are able to investigate content in ways we are not.
+                                             </p>
+                                         </div>
+                                     </div>
+                                     <div id="__other" class="Abuse-content" data-abuse="other">
+                                         <h4>Other Abuse</h4>
+                                         <div class="text-muted">
+                                             <p>
+                                                 Please utilize this form to provide DigitalOcean with evidence of any abuse outside of our categories listed.
+                                             </p>
+                                             <p>
+                                                 This form provides an easy way for persons reporting abuse content to notify DigitalOcean about these abuses that
+                                                 may be propagated by our customers.
+                                             </p>
+                                             <p>
+                                                 In submitting a complaint, please include as much information as
+                                                 is possible in the other abuse form. The more information
+                                                 provided about the issue, the quicker our Trust &amp; Safety
+                                                 specialists can assist in resolving the complaint.
+                                             </p>
+                                         </div>
+                                     </div>
+                                 </div>
+                            </div>
+                                <!--End discription select-->
                         </div>
                     </div>
                 </div>

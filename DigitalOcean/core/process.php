@@ -43,6 +43,7 @@ function customRulesEveryForm($object,$val_Submit,$path)
              ->addRules(['migration'=>['type'=>'string','max'=>100,'min'=>0]])
              ->addRules(['discription'=>['type'=>'string','max'=>100,'min'=>0]]);
         $object->Run();
+
          //save info to data json
          $checkSucc= SaveJsonFile($path,count($object->getError()));
          if($checkSucc==false)
